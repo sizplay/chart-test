@@ -9,14 +9,36 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "20.4.9",
-    "@types/react": "18.2.20",
-    "@types/react-dom": "18.2.7",
-    "eslint": "8.46.0",
-    "eslint-config-next": "13.4.13",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@visx/pattern": "^3.3.0",
+    "@visx/xychart": "^3.3.0",
     "next": "13.4.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.1.6"
+    "recharts": "^2.7.3"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "@next/eslint-plugin-next": "^13.4.7",
+    "@types/": "faker-js/faker",
+    "@types/eslint": "^8.40.2",
+    "@types/eslint-plugin-prettier": "^3.1.0",
+    "@types/node": "20.4.9",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint": "^8.46.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "13.4.13",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.6"
   }
 }
