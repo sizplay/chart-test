@@ -12,6 +12,10 @@ const Home = () => {
     setIsCSR(true);
   }, []);
 
+  const handleFormatYAxis = (tickItem: any) => {
+    return `${tickItem / 1000}k`;
+  };
+
   const customTooltip = (props: any) => {
     const { active, payload } = props;
     if (active) {
@@ -62,7 +66,7 @@ const Home = () => {
 
     return null;
   };
-
+  // const lastIndex = data.length - 1;
   return (
     <Container>
       {isCSR && (
@@ -72,18 +76,21 @@ const Home = () => {
               <stop offset="5%" stopColor={color.gradientLow} stopOpacity={0.8} />
               <stop offset="95%" stopColor={color.gradientHigh} stopOpacity={0} />
             </linearGradient>
-            <linearGradient id="colorLine" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor={color.areaGradientLow} stopOpacity={0.8} />
-              <stop offset="95%" stopColor={color.gradientHigh} stopOpacity={0} />
-            </linearGradient>
           </defs>
           <XAxis dataKey="date1" />
-          <YAxis />
+          <YAxis tickFormatter={handleFormatYAxis} tickCount={8} />
           <Tooltip content={customTooltip} cursor={false} />
           <Legend />
-          <CartesianGrid stroke={color.gridLine} vertical={false} />
+          <CartesianGrid stroke={color.line} vertical={false} />
           <Area type="linear" dataKey="area" fill="url(#colorArea)" stroke="none" />
-          <Line type="linear" dataKey="line" stroke="url(#colorLine)" strokeWidth={5} dot={false} />
+          <Line
+            type="linear"
+            dataKey="line"
+            stroke={color.gridLine}
+            strokeWidth={5}
+            dot={false}
+            // strokeDasharray={`0 ${lastIndex * 10}, ${lastIndex * 5} 10`}
+          />
         </ComposedChart>
       )}
     </Container>
@@ -99,7 +106,7 @@ const CustomTooltip = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 `;
 
-const VisitorsWrapper = styled.div`
+export const VisitorsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -124,10 +131,14 @@ const VisitorsWrapper = styled.div`
   }
 `;
 
-const LastText = styled.p`
+export const LastText = styled.p`
   font-size: 14px;
   font-weight: 600;
   color: ${color.white};
   margin: 10px 0 0;
   text-align: left;
 `;
+
+// 페이지 뷰 /
+// 30 퍼센트 낮게
+// 50퍼센트 정도로
