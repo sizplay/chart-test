@@ -7,25 +7,24 @@ import {
   VictoryTooltip,
   VictoryVoronoiContainer,
 } from 'victory';
-import { data } from '@/components/data';
+import { monthlyData } from '@/components/data';
 import { color } from '@/components/color';
 import { Container } from '.';
-import { LastText, VisitorsWrapper } from './recharts';
 
 const victorychart = () => {
-  const newData = data.map((item) => {
+  const newData = monthlyData.map((item) => {
     return {
       ...item,
-      x: item.date2,
-      y: item.area,
+      x: item.date1,
+      y: item.pageview,
     };
   });
 
-  const newData2 = data.map((item) => {
+  const newData2 = monthlyData.map((item) => {
     return {
       ...item,
-      x: item.date2,
-      y: item.line,
+      x: item.date1,
+      y: item.screen,
     };
   });
 
@@ -49,8 +48,8 @@ const victorychart = () => {
           </defs>
         </svg>
         <VictoryAxis
-          tickValues={data.map((item) => item.date2)}
-          tickFormat={data.map((item) => item.date2)}
+          tickValues={monthlyData.map((item) => item.date1)}
+          tickFormat={monthlyData.map((item) => item.date1)}
           style={{
             tickLabels: { fontSize: 8, fill: '#fff' }, // Adjust the font size here
           }}
