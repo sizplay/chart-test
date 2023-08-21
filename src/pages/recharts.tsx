@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useState } from 'react';
-import Rechart from '@/components/rechart';
+
 import useAreaRechart from '@/components/hooks/useAreaRechart';
 import useLineRechart from '@/components/hooks/useLineRechart';
-import { Container } from '.';
+import RechartComponent from '@/components/RechartComponent';
+import { Container } from '@/components/utils/Container';
 
 const Home = () => {
   const [graphType, setGraphType] = useState<'line' | 'area'>('area');
@@ -31,7 +32,7 @@ const Home = () => {
 
   return (
     <Container>
-      <Rechart
+      <RechartComponent
         handleChangeSelect={graphType === 'area' ? handleChangeSelect : handleLineChangeSelect}
         handleFormatYAxis={graphType === 'area' ? handleAreaFormatYAxis : handleLineFormatYAxis}
         customTooltip={graphType === 'area' ? AreaCustomTooltip : lineCustomTooltip}
@@ -39,7 +40,7 @@ const Home = () => {
         handleChangeGraph={handleChangeGraph}
       >
         {graphType === 'area' ? AreaChildren : LineChildren}
-      </Rechart>
+      </RechartComponent>
     </Container>
   );
 };

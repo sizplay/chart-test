@@ -9,7 +9,7 @@ import {
 } from 'victory';
 import { monthlyData } from '@/components/data';
 import { color } from '@/components/color';
-import { Container } from '.';
+import { Container } from '@/components/utils/Container';
 
 const victorychart = () => {
   const newData = monthlyData.map((item) => {

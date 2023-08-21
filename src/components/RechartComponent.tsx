@@ -3,8 +3,8 @@
 import styled from '@emotion/styled';
 import { CartesianGrid, ComposedChart, Tooltip, XAxis, YAxis } from 'recharts';
 import { useEffect, useState } from 'react';
-import { Container } from '@/pages';
 import { color } from './color';
+import { Container } from './utils/Container';
 
 interface RechartProps {
   handleChangeSelect: (e: React.ChangeEvent<HTMLSelectElement>) => void;

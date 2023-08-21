@@ -1,23 +1,23 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import { color } from '@/components/color';
 
 const Home = () => {
   return (
-    <div>
+    <Container>
       <Link href="/recharts">Recharts</Link>
-    </div>
+      <Link href="/visx">Visx</Link>
+    </Container>
   );
 };
 
 export default Home;
 
-export const Container = styled.div`
+const Container = styled.section`
+  margin: 50px 16px 0;
   width: 100%;
   height: 100vh;
-  background-color: ${color.background};
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 16px 0;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-direction: column;
 `;
