@@ -65,3 +65,15 @@ export const monthlyData = [
   { date1: '10 Aug', pageview: 5500, screen: 3700, click: 2700 },
   { date1: '11 Aug', pageview: 912, screen: 2700, click: 1700 },
 ];
+
+export const devicesData = [
+  { browser: 'Chrome', visitors: 77067, percentage: 56.8 },
+  { browser: 'Safari', visitors: 29451, percentage: 21.7 },
+  { browser: 'Firefox', visitors: 20936, percentage: 15.4 },
+  { browser: 'Microsoft Edge', visitors: 5601, percentage: 4.1 },
+  { browser: 'Opera', visitors: 760, percentage: 0.6 },
+  { browser: 'Mobile App', visitors: 615, percentage: 0.5 },
+  { browser: 'DuckDuckGo Privacy Browser', visitors: 301, percentage: 0.2 },
+  { browser: 'Samsung Browser', visitors: 204, percentage: 0.2 },
+  { browser: 'Yandex Browser', visitors: 79, percentage: 0.1 },
+];

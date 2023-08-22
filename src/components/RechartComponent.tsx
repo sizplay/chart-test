@@ -5,6 +5,7 @@ import { CartesianGrid, ComposedChart, Tooltip, XAxis, YAxis } from 'recharts';
 import { useEffect, useState } from 'react';
 import { color } from './color';
 import { Container } from './utils/Container';
+import useIsCSR from './hooks/useIsCSR';
 
 interface RechartProps {
   handleChangeSelect: (e: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -23,10 +24,7 @@ const Rechart = ({
   children,
   handleChangeGraph,
 }: RechartProps) => {
-  const [isCSR, setIsCSR] = useState(false);
-  useEffect(() => {
-    setIsCSR(true);
-  }, []);
+  const isCSR = useIsCSR();
   return (
     <Container>
       <RechartsContainer>

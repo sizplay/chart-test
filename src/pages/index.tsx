@@ -6,6 +6,8 @@ const Home = () => {
     <Container>
       <Link href="/recharts">Recharts</Link>
       <Link href="/visx">Visx</Link>
+      <Link href="/barRecharts">bar recharts</Link>
+      <Link href="/verticalBarRecharts">vertical bar recharts</Link>
     </Container>
   );
 };
@@ -17,7 +19,5 @@ const Container = styled.section`
   width: 100%;
   height: 100vh;
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
   flex-direction: column;
 `;
