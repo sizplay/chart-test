@@ -67,13 +67,32 @@ export const monthlyData = [
 ];
 
 export const devicesData = [
-  { browser: 'Chrome', visitors: 77067, percentage: 56.8 },
-  { browser: 'Safari', visitors: 29451, percentage: 21.7 },
-  { browser: 'Firefox', visitors: 20936, percentage: 15.4 },
-  { browser: 'Microsoft Edge', visitors: 5601, percentage: 4.1 },
-  { browser: 'Opera', visitors: 760, percentage: 0.6 },
-  { browser: 'Mobile App', visitors: 615, percentage: 0.5 },
-  { browser: 'DuckDuckGo Privacy Browser', visitors: 301, percentage: 0.2 },
-  { browser: 'Samsung Browser', visitors: 204, percentage: 0.2 },
-  { browser: 'Yandex Browser', visitors: 79, percentage: 0.1 },
+  { type: 'Chrome', visitors: 77067, percentage: 56.8 },
+  { type: 'Safari', visitors: 29451, percentage: 21.7 },
+  { type: 'Firefox', visitors: 20936, percentage: 15.4 },
+  { type: 'Microsoft Edge', visitors: 5601, percentage: 4.1 },
+  { type: 'Opera', visitors: 760, percentage: 0.6 },
+  { type: 'Mobile App', visitors: 615, percentage: 0.5 },
+  { type: 'DuckDuckGo Privacy Browser', visitors: 301, percentage: 0.2 },
+  { type: 'Samsung Browser', visitors: 204, percentage: 0.2 },
+  { type: 'Yandex Browser', visitors: 79, percentage: 0.1 },
+];
+
+export const osData = [
+  { type: 'Mac', visitors: 60173, percentage: 44.3 },
+  { type: 'Windows', visitors: 35092, percentage: 25.9 },
+  { type: 'iOS', visitors: 20889, percentage: 15.4 },
+  { type: 'Android', visitors: 10356, percentage: 7.6 },
+  { type: 'GNU/Linux', visitors: 6832, percentage: 5 },
+  { type: 'Ubuntu', visitors: 1620, percentage: 1.2 },
+  { type: 'iPadOS', visitors: 324, percentage: 0.2 },
+  { type: 'Chrome OS', visitors: 299, percentage: 0.2 },
+  { type: '(not set)', visitors: 9, percentage: 0 },
+];
+
+export const sizeData = [
+  { type: 'Desktop', visitors: 103900, percentage: 76.5 },
+  { type: 'Mobile', visitors: 30952, percentage: 22.8 },
+  { type: 'Tablet', visitors: 619, percentage: 0.5 },
+  { type: '(note set)', visitors: 99, percentage: 0 },
 ];
