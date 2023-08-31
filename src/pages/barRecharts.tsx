@@ -5,45 +5,7 @@ import useIsCSR from '@/components/hooks/useIsCSR';
 import { Container } from '@/components/utils/Container';
 import { color } from '@/components/color';
 import { CustomTooltip, VisitorsWrapper } from '@/components/hooks/useLineRechart';
-
-const data = [
-  {
-    name: 'Visit /register',
-    prev: 0,
-    current: 100,
-    visitors: 5187,
-    visitorsPercentage: 3.82,
-    never: 130446,
-    neverPercentage: 96.18,
-  },
-  {
-    name: 'Signup',
-    prev: 100 - 33.78,
-    current: 33.78,
-    visitors: 1752,
-    visitorsPercentage: 33.78,
-    never: 3435,
-    neverPercentage: 66.22,
-  },
-  {
-    name: 'Visit /activate',
-    prev: 33.78 - 31.44,
-    current: 31.44,
-    visitors: 1631,
-    visitorsPercentage: 93.09,
-    never: 121,
-    neverPercentage: 6.91,
-  },
-  {
-    name: 'Visit /sites/new',
-    prev: 31.44 - 30.15,
-    current: 30.15,
-    visitors: 1564,
-    visitorsPercentage: 95.89,
-    never: 67,
-    neverPercentage: 4.11,
-  },
-];
+import { visitorData } from '@/components/data';
 
 const BarRecharts = () => {
   const isCSR = useIsCSR();
@@ -52,7 +14,7 @@ const BarRecharts = () => {
   const customLabel = (props: any) => {
     const { x, y, value } = props;
 
-    const myData = data.find((item) => item.current === value);
+    const myData = visitorData.find((item) => item.current === value);
     const visitors = myData?.visitors ? `(${(myData.visitors / 1000).toFixed(1)}k Visitors)` : '(0k Visitors)';
     if (value > 90) {
       return (
@@ -136,7 +98,7 @@ const BarRecharts = () => {
         <BarChart
           width={1200}
           height={600}
-          data={data}
+          data={visitorData}
           margin={{
             top: 20,
             right: 30,
@@ -156,9 +118,20 @@ const BarRecharts = () => {
           </defs>
 
           <defs>
-            <pattern id="combPattern" patternUnits="userSpaceOnUse" width={10} height={10}>
-              <line x1="0" y1="0" x2="20" y2="20" stroke="#5c5e61" strokeWidth="1" />
+            <pattern
+              id="combPattern"
+              x="0"
+              y="0"
+              width="1"
+              height="20"
+              patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)"
+            >
+              <line x1="0" y1="0" x2="10" y2="10" stroke="#5c5e61" strokeWidth="23" />
             </pattern>
+            {/* <pattern id="combPattern" patternUnits="userSpaceOnUse" width={10} height={10}>
+              <line x1="0" y1="0" x2="20" y2="20" stroke="#5c5e61" strokeWidth="1" />
+            </pattern> */}
           </defs>
 
           <Bar dataKey="current" stackId="a" fill="url(#gradientBar)">

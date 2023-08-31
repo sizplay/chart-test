@@ -15,22 +15,52 @@ const VerticalBarRecharts = () => {
   if (!isCSR) return null;
 
   const customLabelList = (props: any, key: string) => {
-    const { x, y, value } = props;
+    console.log(props);
+    const { x, y, value, height } = props;
 
-    // if (key === 'type') {
+    const yCoordinate = y + height / 2;
+
+    if (key === 'type') {
+      return (
+        <text
+          className="value"
+          x={x + 10}
+          y={yCoordinate}
+          fill={color.white}
+          textAnchor="start"
+          dominantBaseline="middle"
+        >
+          <Link href="/">{value}</Link>
+        </text>
+      );
+    }
+
+    const percentage = data.find((item) => item.visitors === value)?.percentage;
+
     return (
-      <text className="value" x={x + 10} y={y + 17.5} fill={color.white} textAnchor="start" dominantBaseline="middle">
-        <Link href="/">{value}</Link>
-      </text>
+      <g>
+        <text
+          className="value"
+          x={x + 680}
+          y={yCoordinate}
+          fill={color.white}
+          textAnchor="start"
+          dominantBaseline="middle"
+        >
+          {value.toLocaleString()}
+        </text>
+        <text
+          className="value"
+          x={x + 700 + 40}
+          y={yCoordinate}
+          fill={color.white}
+          textAnchor="start"
+          dominantBaseline="middle"
+        >
+          {percentage}%
+        </text>
+      </g>
     );
-    // }
-
-    // return (
-    //   <text className="value" x={x + 10} y={y + 17.5} fill={color.white} textAnchor="start" dominantBaseline="middle">
-    //     {value.toLocaleString()}
-    //   </text>
-    // );
-    // }
   };
 
   const handleChangeData = (type: string) => {
@@ -64,15 +94,23 @@ const VerticalBarRecharts = () => {
             </VerticalBarTitleWrapper>
             <VerticalBarRechartsContainer>
               <BarChartWrapper>
-                <p>Browsers</p>
+                <VerticalBarTitleWrapper>
+                  <p>Browsers</p>
+                  <TypeWrapper>
+                    <p>Visitors</p>
+                    <p>%</p>
+                  </TypeWrapper>
+                </VerticalBarTitleWrapper>
                 <BarChart
                   layout="vertical"
+                  className="barchart-hello"
                   width={800}
                   height={400}
                   data={data}
+                  barCategoryGap={4}
                   margin={{
                     top: 20,
-                    right: 20,
+                    right: 100,
                     bottom: 20,
                     left: 20,
                   }}
@@ -81,22 +119,10 @@ const VerticalBarRecharts = () => {
                   <YAxis dataKey="type" type="category" scale="band" hide={true} />
                   <Bar dataKey="visitors" fill="#313948">
                     <LabelList dataKey="type" content={(props) => customLabelList(props, 'type')} />
-                    {/* <LabelList dataKey="visitors" content={(props) => customLabelList(props, 'visitors')} /> */}
+                    <LabelList dataKey="visitors" content={(props) => customLabelList(props, 'visitors')} />
                   </Bar>
                 </BarChart>
               </BarChartWrapper>
-              <BarChartInfo>
-                <TextWrapper>
-                  <p>Visitors</p>
-                  <p>%</p>
-                  {data.map((item) => (
-                    <React.Fragment key={item.visitors}>
-                      <p>{item.visitors.toLocaleString()}</p>
-                      <p>{item.percentage}%</p>
-                    </React.Fragment>
-                  ))}
-                </TextWrapper>
-              </BarChartInfo>
             </VerticalBarRechartsContainer>
           </div>
         </ResponsiveContainer>
@@ -111,15 +137,15 @@ const VerticalBarRechartsSection = styled.section`
   width: 100%;
   height: 100vh;
   background-color: #272f3e;
-  width: 1050px;
-  height: 450px;
+  width: 820px;
+  height: 480px;
 `;
 
 const VerticalBarRechartsContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  margin-top: 30px;
+  margin-top: 10px;
 `;
 
 const BarChartWrapper = styled.div`
@@ -148,27 +174,10 @@ const BarChartWrapper = styled.div`
       text-decoration: underline;
     }
   }
-`;
 
-const BarChartInfo = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-top: -34px;
-`;
-
-const TextWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: flex-end;
-  text-align: right;
-  margin-right: 20px;
-
-  p {
-    color: ${color.white};
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 24px;
-    padding-top: 2px;
+  .barchart-hello {
+    svg {
+    }
   }
 `;
 
@@ -188,7 +197,7 @@ const VerticalBarTitleWrapper = styled.div`
 
 const TypeWrapper = styled.div`
   display: flex;
-  margin-right: 20px;
+  /* margin-right: 50px; */
 
   button {
     background-color: transparent;
@@ -199,12 +208,22 @@ const TypeWrapper = styled.div`
     color: ${color.white};
     font-size: 14px;
     font-weight: 600;
-    margin-left: 20px;
+    margin-left: 8px;
     margin-top: -8px;
     margin-bottom: -8px;
 
     &:active {
       text-decoration: underline;
+    }
+
+    &:last-of-type {
+      margin-right: 20px;
+    }
+  }
+
+  p {
+    &:last-of-type {
+      margin-right: 50px;
     }
   }
 `;

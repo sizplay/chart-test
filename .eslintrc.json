@@ -9,13 +9,7 @@
     "browser": true,
     "es6": true
   },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "import",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "react-hooks", "import", "@typescript-eslint", "prettier"],
   "extends": [
     "airbnb",
     "airbnb-base",
@@ -28,7 +22,8 @@
     "plugin:import/typescript",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/eslint-recommended"
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:tailwindcss/recommended"
   ],
   "rules": {
     "prettier/prettier": [
