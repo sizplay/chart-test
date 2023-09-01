@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 import styled from '@emotion/styled';
 import { CartesianGrid, ComposedChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { useEffect, useState } from 'react';
 import { color } from './color';
 import { Container } from './utils/Container';
 import useIsCSR from './hooks/useIsCSR';

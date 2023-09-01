@@ -1,5 +1,5 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable tailwindcss/no-custom-classname */
 import { Bar, ComposedChart, Legend, Line, Tooltip, XAxis, YAxis } from 'recharts';
 import useIsCSR from '@/components/hooks/useIsCSR';
 import { monthlyData } from '@/components/data';
@@ -37,8 +37,14 @@ const ThreebarsRecharts = () => {
       const conversion = payload[0]?.payload.conversion;
       const { firstDate } = tooltipLinesFunc(visitorDate);
 
+      /**
+       * background-color: ${color.background};
+  border-radius: 1px;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+       */
       return (
-        <CustomTooltip>
+        <div className={`bg-[${color.background}] rounded-sm p-4 shadow-md`}>
           <VisitorsWrapper>
             <h1>Visitors</h1>
             <p className="first">{firstDate}</p>
@@ -59,7 +65,7 @@ const ThreebarsRecharts = () => {
             <p>전환율</p>
             <p>{`${((conversion / pageview) * 100).toFixed(1)}%`}</p>
           </VisitorsWrapper>
-        </CustomTooltip>
+        </div>
       );
     }
 

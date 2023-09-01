@@ -26,12 +26,7 @@
     "plugin:tailwindcss/recommended"
   ],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true
-      }
-    ],
+    "prettier/prettier":"error",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-boolean-value": "off",

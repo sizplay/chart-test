@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { BarChart, XAxis, YAxis, Legend, Bar, Tooltip } from 'recharts';
+import { BarChart, XAxis, YAxis, Legend, Bar, Tooltip, ResponsiveContainer } from 'recharts';
 import { useEffect, useState } from 'react';
 import { conversionData } from '@/components/data';
 import { color } from './color';
@@ -34,28 +33,30 @@ const FunnalRechartComponent = () => {
   };
 
   return (
-    <BarChart
-      width={1200}
-      height={600}
-      data={showData}
-      margin={{
-        top: 20,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
-      <XAxis dataKey="name" tick={{ stroke: color.white }} />
-      <YAxis tick={{ stroke: color.white }} tickFormatter={handleFormatYAxis} />
-      <Tooltip cursor={false} />
-      <Legend
-        verticalAlign="middle"
-        layout="vertical"
-        align="right"
-        content={<CustomizedLegend data={newData} handleCheckbox={handleCheckbox} />}
-      />
-      <Bar dataKey="value" fill="#6abee8" maxBarSize={150} />
-    </BarChart>
+    <ResponsiveContainer>
+      <BarChart
+        width={1200}
+        height={600}
+        data={showData}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <XAxis dataKey="name" tick={{ stroke: color.white }} />
+        <YAxis tick={{ stroke: color.white }} tickFormatter={handleFormatYAxis} />
+        <Tooltip cursor={false} />
+        <Legend
+          verticalAlign="middle"
+          layout="vertical"
+          align="right"
+          content={<CustomizedLegend data={newData} handleCheckbox={handleCheckbox} />}
+        />
+        <Bar dataKey="value" fill="#6abee8" maxBarSize={150} />
+      </BarChart>
+    </ResponsiveContainer>
   );
 };
 

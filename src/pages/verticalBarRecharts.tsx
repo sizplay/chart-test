@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Bar, BarChart, XAxis, YAxis, ResponsiveContainer, LabelList } from 'recharts';
 import styled from '@emotion/styled';

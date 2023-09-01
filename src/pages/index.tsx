@@ -19,6 +19,9 @@ const Home = () => {
           <Link className="text-blue-500 underline" href="/threebarsRecharts">
             threebars recharts
           </Link>
+          <Link className="text-blue-500 underline" href="/funnalRecharts">
+            funnal recharts
+          </Link>
         </div>
         <div className="flex flex-col">
           <div className="text-xl font-bold">Visx</div>

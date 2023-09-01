@@ -1,10 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { BarGroupHorizontal, Bar } from '@visx/shape';
 import { Group } from '@visx/group';
 import { AxisLeft } from '@visx/axis';
 import cityTemperature, { CityTemperature } from '@visx/mock-data/lib/mocks/cityTemperature';
 import { scaleBand, scaleLinear, scaleOrdinal } from '@visx/scale';
-import { timeParse, timeFormat } from '@visx/vendor/d3-time-format';
 import { Container } from '@/components/utils/Container';
 import { devicesData } from '@/components/data';
 
@@ -15,7 +15,6 @@ export type BarGroupHorizontalProps = {
 };
 
 type CityName = 'New York' | 'San Francisco' | 'Austin';
-type DeviceType = 'type' | 'visitors' | 'percentage';
 
 const blue = '#aeeef8';
 export const green = '#e5fd3d';
@@ -23,9 +22,6 @@ const purple = '#9caff6';
 export const background = '#612efb';
 const defaultMargin = { top: 20, right: 20, bottom: 20, left: 50 };
 
-const parseDate = timeParse('%Y-%m-%d');
-const format = timeFormat('%b %d');
-const formatDate = (date: string) => format(parseDate(date) as Date);
 function max<D>(arr: D[], fn: (d: D) => number) {
   return Math.max(...arr.map(fn));
 }
@@ -49,10 +45,6 @@ const cityScale = scaleBand({
 });
 const tempScale = scaleLinear<number>({
   domain: [0, max(data, (d) => max(keys, (key) => Number(d[key])))],
-});
-const colorScale = scaleOrdinal<string, string>({
-  domain: keys,
-  range: [blue, green, purple],
 });
 
 // accessors

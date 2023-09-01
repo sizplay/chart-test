@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { LinearGradient } from '@visx/gradient';
 import { AnimatedAreaSeries, AnimatedLineSeries } from '@visx/xychart';
