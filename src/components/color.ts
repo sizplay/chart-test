@@ -8,6 +8,7 @@ export const color = {
   gray: '#b9bbc6',
   line: '#1b212c',
   white: '#fff',
+  blue: '#5a69a8',
 
   line1: '#5a69a8',
   line2: '#3e4a6f',

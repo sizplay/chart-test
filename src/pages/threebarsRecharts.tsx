@@ -31,18 +31,11 @@ const ThreebarsRecharts = () => {
 
     if (active) {
       const visitorDate = payload[0]?.payload.date1 || '';
-      const pageview =
-        (payload[0]?.payload.pageview ?? 0) + (payload[0]?.payload.click ?? 0) + (payload[0]?.payload.conversion ?? 0);
+      const pageview = payload[0]?.payload.pageview ?? 0;
       const click = payload[0]?.payload.click;
       const conversion = payload[0]?.payload.conversion;
       const { firstDate } = tooltipLinesFunc(visitorDate);
 
-      /**
-       * background-color: ${color.background};
-  border-radius: 1px;
-  padding: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-       */
       return (
         <div className={`bg-[${color.background}] rounded-sm p-4 shadow-md`}>
           <VisitorsWrapper>

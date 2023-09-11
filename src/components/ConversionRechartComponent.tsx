@@ -1,10 +1,15 @@
+/* eslint-disable tailwindcss/classnames-order */
+/* eslint-disable tailwindcss/no-custom-classname */
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Area, AreaChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { conversionDataForOneMonth } from './data';
 import { color } from './color';
+
+const TWODAYSDIVISION = 48;
 
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
@@ -87,26 +92,40 @@ const CustomActiveDot = (props: any) => {
 const ConversionRechartComponent = () => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [activeDotPos, setActiveDotPos] = useState({ x: 0, y: 0 });
-  // const [isHovering, setIsHovering] = useState(false);
-  // const [tickIndex, setTickIndex] = useState(0);
   const [xAxisLineElements, setXAxisLineElements] = useState<NodeListOf<Element>>();
-
-  const handleMouseOver = (e: any) => {
-    // setTickIndex(e.index === 0 ? 0 : e.index / 2);
-    // setIsHovering(true);
-  };
-
-  const handleMouseOut = () => {
-    // setIsHovering(false);
-  };
+  const [tickWidth, setTickWidth] = useState(0);
+  const [eventBoxExpanded, setEventBoxExpanded] = useState<
+    { date: string; eventExist: boolean; eventActive: boolean }[]
+  >([]);
 
   useLayoutEffect(() => {
     const chart = chartRef.current;
     if (chart !== null) {
       const xAxisLineElements = chart.querySelectorAll('.recharts-cartesian-axis-tick-line');
+      const tickWidth =
+        (xAxisLineElements[1].getBoundingClientRect().x - xAxisLineElements[0].getBoundingClientRect().x) /
+        TWODAYSDIVISION;
+      setTickWidth(tickWidth);
       setXAxisLineElements(xAxisLineElements);
     }
   }, []);
+
+  useEffect(() => {
+    const eventArray = conversionDataForOneMonth.map((data) => {
+      if (data.event) {
+        return { date: data.date, eventExist: true, eventActive: false };
+      }
+      return { date: data.date, eventExist: false, eventActive: false };
+    });
+    setEventBoxExpanded(eventArray);
+  }, []);
+
+  const handleEventClick = (date: string, index: number) => {
+    if (conversionDataForOneMonth[index].date === date && eventBoxExpanded[index].eventExist) {
+      eventBoxExpanded[index].eventActive = !eventBoxExpanded[index].eventActive;
+      setEventBoxExpanded((prev) => [...prev, eventBoxExpanded[index]]);
+    }
+  };
 
   return (
     <div ref={chartRef}>
@@ -117,13 +136,7 @@ const ConversionRechartComponent = () => {
             <stop offset="95%" stopColor="#34afe9" stopOpacity={0.1} />
           </linearGradient>
         </defs>
-        <XAxis
-          dataKey="date"
-          tick={{ stroke: color.white }}
-          onMouseOver={handleMouseOver}
-          interval={1}
-          onMouseOut={handleMouseOut}
-        />
+        <XAxis dataKey="date" tick={{ stroke: color.white }} interval={1} />
         <YAxis tick={{ stroke: color.white }} domain={[0, 100]} />
         <Tooltip
           position={{ x: activeDotPos.x, y: activeDotPos.y }}
@@ -140,48 +153,116 @@ const ConversionRechartComponent = () => {
         />
         <Area type="monotone" dataKey="conversion" fillOpacity={1} fill="url(#colorUv)" />
         {conversionDataForOneMonth.map((data, index) => {
-          const line = xAxisLineElements?.[index / 2] as SVGLineElement;
-          const linePosition = line?.getBBox().x;
-
           if (data.event) {
+            let line = xAxisLineElements?.[index / 2] as SVGLineElement;
+            let linePosition = line?.getBBox().x;
+
+            if (!line) {
+              line = xAxisLineElements?.[(index + 1) / 2] as SVGLineElement;
+              // eslint-disable-next-line no-unsafe-optional-chaining
+              linePosition = line?.getBBox().x - tickWidth * 24;
+            }
+
+            if (!linePosition) return <React.Fragment key={data.date + index} />;
+
             return (
-              <>
-                <svg x1={linePosition} y1="0" x2={linePosition} y2="500">
-                  <line
-                    x1={linePosition}
-                    y1="0"
-                    x2={linePosition}
-                    y2="500"
-                    stroke="#B5B5B5"
-                    strokeWidth={1}
-                    strokeDasharray="10 10"
-                  />
-                </svg>
-                <svg key={data.date}>
-                  <g>
-                    <line
-                      orientation="bottom"
-                      width="1140"
-                      height="30"
-                      x={linePosition}
-                      y="500"
-                      stroke="#fff"
-                      fill="none"
-                      x1={linePosition}
-                      y1="506"
-                      x2={linePosition}
+              <React.Fragment key={data.date + index}>
+                {data.event.time.map((time, index) => {
+                  const targetTime = new Date(data.date + time).getHours() - new Date(`${data.date}00:00`).getHours();
+
+                  const newLinePosition = linePosition + targetTime * tickWidth;
+
+                  return (
+                    <svg
+                      key={time + index + Math.random() * 2}
+                      x1={newLinePosition}
+                      y1="0"
+                      x2={newLinePosition}
                       y2="500"
+                    >
+                      <line
+                        x1={newLinePosition}
+                        y1="0"
+                        x2={newLinePosition}
+                        y2="500"
+                        stroke={data.event.color || '#b5b5b5'}
+                        strokeWidth={1}
+                        strokeDasharray="10 10"
+                      />
+                    </svg>
+                  );
+                })}
+                <svg key={data.date} onClick={() => handleEventClick(data.date, index)}>
+                  <style>
+                    {`
+                      rect {
+                          transition: all 0.1s ease;
+                        }
+                      text {
+                        transform: translateX(0);
+                        transition: all 0.3s ease !important;
+                        }
+                      .transition-opacity-text {
+                        opacity: 1;
+                        transition: all 0.3s ease !important;
+                      }
+
+                      `}
+                  </style>
+                  <g>
+                    <rect
+                      x={linePosition - 30}
+                      y="530"
+                      width={60}
+                      height={eventBoxExpanded[index]?.eventActive ? 30 + data.event.time.length * 10 : 30}
+                      rx="2"
+                      fill={color.white}
+                      className="cursor-pointer"
                     />
-                    <rect x={linePosition - 30} y="530" width="60" height="30" rx="2" fill={color.white} />
-                    <text x={linePosition - 26} y="548" fontSize="0.6em" fill="#666">
-                      {data.event}
-                    </text>
+                    {eventBoxExpanded[index]?.eventActive ? (
+                      <>
+                        <text
+                          x={linePosition - 24}
+                          y={548}
+                          fontSize="0.6em"
+                          fill="#666"
+                          transform=""
+                          className="cursor-pointer transition-opacity-text"
+                        >
+                          {data.event.name}
+                        </text>
+                        {data.event.time.map((time, index) => {
+                          return (
+                            <text
+                              key={time + index + Math.random() * 2}
+                              x={linePosition - 24}
+                              y={(index + 1) * 11 + 548}
+                              fontSize="0.6em"
+                              fill="#666"
+                              className="cursor-pointer transition-opacity-text"
+                            >
+                              {time}
+                            </text>
+                          );
+                        })}
+                      </>
+                    ) : (
+                      <text
+                        x={linePosition - 24}
+                        y="548"
+                        fontSize="0.6em"
+                        fill="#666"
+                        className="cursor-pointer transition-opacity-text"
+                      >
+                        {data.event.name}
+                      </text>
+                    )}
                   </g>
                 </svg>
-              </>
+              </React.Fragment>
             );
           }
-          return null;
+          return <React.Fragment key={data.date + index} />;
         })}
       </AreaChart>
     </div>
