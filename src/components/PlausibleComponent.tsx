@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import VerticalBarRecharts from '@/pages/verticalBarRecharts';
 import { BarChart3 } from 'lucide-react';
 import IndicatedInformation from './plausible/IndicatedInformation';
-import { indicatedData, indicatedTitles } from './data';
+import { indicatedData, indicatedTitles, topSources } from './data';
 import ConversionIndication from './plausible/ConversionIndication';
+import CampainTable from './plausible/CampainTable';
+import VerticalBarComponent from './VerticalBarComponent';
 
 const FourBarsLineRechartComponent = dynamic(() => import('@/components/FourBarsLineRechartComponent'), {
   ssr: false,
@@ -48,7 +50,10 @@ const PlausibleComponent = () => {
       </div>
       <ConversionIndication />
       <VerticalBarRecharts />
-      <div className="pt-2" />
+      <div className="pt-5" />
+      <VerticalBarComponent data={topSources} />
+      <div className="pt-5" />
+      <CampainTable />
     </main>
   );
 };

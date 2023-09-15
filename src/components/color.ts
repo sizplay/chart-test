@@ -9,9 +9,9 @@ export const color = {
   line: '#1b212c',
   white: '#fff',
   blue: '#5a69a8',
-
   line1: '#5a69a8',
   line2: '#3e4a6f',
   line3: '#2b344f',
   black: '#000000',
+  grayColor: '#6B7280',
 };

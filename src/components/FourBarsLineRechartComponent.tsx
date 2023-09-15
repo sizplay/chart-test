@@ -146,17 +146,13 @@ const FourBarsLineRechartComponent = ({ selections }: FourBarsLineRechartCompone
 
   const renderLegend = (props: any) => {
     const { payload } = props;
-    console.log(payload);
     return (
       <ul className="flex items-center justify-center">
-        {payload.map((entry: any, index: any) => {
-          console.log(entry);
-          return (
-            <li key={`item-${index}`} style={{ color: entry.color }} className="m-2">
-              {legendData[entry.value as keyof typeof legendData]}
-            </li>
-          );
-        })}
+        {payload.map((entry: any, index: any) => (
+          <li key={`item-${index}`} style={{ color: entry.color }} className="m-2">
+            {legendData[entry.value as keyof typeof legendData]}
+          </li>
+        ))}
       </ul>
     );
   };

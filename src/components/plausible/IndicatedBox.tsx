@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Tooltip } from 'antd';
+import { Tooltip, Statistic } from 'antd';
 import { AlertCircle, Eye, MousePointerClick, MoveDown, MoveUp, ShoppingCart, User } from 'lucide-react';
 
 const titleIcons = {
