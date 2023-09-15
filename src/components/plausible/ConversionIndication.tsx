@@ -31,8 +31,8 @@ const ConversionIndication = () => {
             return (
               <div key={item.title} className="flex flex-col p-5 ">
                 <div className="flex">
-                  <div className="m-2 ml-0 flex items-center rounded-full bg-gray-100">
-                    <p className="text-gray-400">{icons[item.icon as keyof typeof icons]}</p>
+                  <div className="m-2 ml-0 flex items-center rounded-full bg-gray-200">
+                    <p className="text-gray-500">{icons[item.icon as keyof typeof icons]}</p>
                   </div>
                   <div className="flex flex-col items-start justify-center">
                     <p className="text-lg text-gray-500">{item.title}</p>

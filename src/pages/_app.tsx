@@ -1,13 +1,13 @@
 import '../../public/static/fonts/style.css';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { Inter } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const notoSansKr = Noto_Sans_KR({ subsets: ['latin'], weight: ['100', '400', '700', '900'] });
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <main className={inter.className}>
+    <main className={notoSansKr.className}>
       <Component {...pageProps} />
     </main>
   );

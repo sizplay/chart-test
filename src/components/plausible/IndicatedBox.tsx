@@ -33,23 +33,23 @@ const IndicatedBox = ({ data, handleSelections, selected }: IndicatedBoxProps) =
       } `}
       onClick={() => handleSelections(data.title)}
     >
-      <div className="flex">
+      <div className="flex items-center">
         {titleIcons[data.icon as keyof typeof titleIcons]}
         <p className="text-sm text-gray-400">{data.title}</p>
         <Tooltip title={data.prompt}>
-          <AlertCircle size={16} className="ml-2 translate-y-px text-gray-600" />
+          <AlertCircle size={16} className="ml-2 text-gray-600 " />
         </Tooltip>
       </div>
       <div className="mt-1 flex items-end">
         <p className="text-2xl font-bold">{data.value}</p>
-        <div className="flex items-center">
+        <div className="flex items-end">
           <p className={`ml-1 text-lg ${data.percentageColor === 'green' ? 'text-green-600' : 'text-red-600'}`}>
             {data.percentage}%
           </p>
           {data.percentageColor === 'green' ? (
-            <MoveUp size={15} className="-translate-y-px text-green-600" />
+            <MoveUp size={15} className="-translate-y-1 text-green-600" />
           ) : (
-            <MoveDown size={15} className="-translate-y-px text-red-600" />
+            <MoveDown size={15} className="-translate-y-1 text-red-600" />
           )}
         </div>
       </div>
