@@ -28,7 +28,7 @@ const IndicatedBox = ({ data, handleSelections, selected }: IndicatedBoxProps) =
   return (
     <section
       key={data.title}
-      className={`ml-2 mt-4 box-border flex grow cursor-pointer flex-col rounded-lg bg-white p-5 first-of-type:ml-4 last-of-type:mr-4 ${
+      className={`mt-4 box-border flex w-full cursor-pointer flex-col rounded-lg bg-white p-3 ${
         selected && 'border-2 border-solid border-sky-500'
       } `}
       onClick={() => handleSelections(data.title)}
