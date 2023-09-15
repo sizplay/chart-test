@@ -1,0 +1,14 @@
+
+@font-face {
+  font-family: 'NanumSquare';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/NanumSquare-Medium.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'NanumSquare';
+  font-weight: 700;
+  font-style: normal;
+  src: url('/fonts/NanumSquare-Bold.ttf') format('ttf');
+}
