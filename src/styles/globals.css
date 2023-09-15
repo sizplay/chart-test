@@ -132,14 +132,3 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-@font-face {
-  font-family: "InkLipquid";
-  font-weight: 200;
-  src: url("/public/static/fonts/InkLipquidFonts.ttf") format("truetype");
-}
-
-body {
-  font-family: -apple-system, InkLipquid, sans-serif;
-}
-
