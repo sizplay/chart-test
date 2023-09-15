@@ -30,7 +30,7 @@ const PlausibleComponent = () => {
   return (
     <main className="m-auto h-screen w-screen max-w-7xl pt-5">
       <div className="flex items-center justify-between px-5">
-        <div className="flex">
+        <div className="flex items-center">
           <BarChart3 size={30} className="text-gray-400" />
           <h1 className="ml-3 text-4xl text-gray-500">코드앤버터 사이트 통계</h1>
         </div>
