@@ -28,7 +28,7 @@ const PlausibleComponent = () => {
   };
 
   return (
-    <main className="m-auto h-screen w-screen max-w-7xl bg-gray-100 pt-5">
+    <main className="m-auto h-screen w-screen max-w-7xl pt-5">
       <div className="flex items-center justify-between px-5">
         <div className="flex">
           <BarChart3 size={30} className="text-gray-400" />
@@ -41,9 +41,11 @@ const PlausibleComponent = () => {
           </div>
         </div>
       </div>
-      <IndicatedInformation selections={selections} handleSelections={handleSelections} />
-      <div className="pt-2" />
-      <FourBarsLineRechartComponent selections={selections} />
+      <div className="mt-5 bg-gray-100">
+        <IndicatedInformation selections={selections} handleSelections={handleSelections} />
+        <div className="pt-2" />
+        <FourBarsLineRechartComponent selections={selections} />
+      </div>
       <ConversionIndication />
       <VerticalBarRecharts />
       <div className="pt-2" />
