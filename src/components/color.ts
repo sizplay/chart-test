@@ -13,4 +13,5 @@ export const color = {
   line1: '#5a69a8',
   line2: '#3e4a6f',
   line3: '#2b344f',
+  black: '#000000',
 };

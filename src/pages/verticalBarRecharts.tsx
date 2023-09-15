@@ -2,21 +2,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Bar, BarChart, XAxis, YAxis, ResponsiveContainer, LabelList } from 'recharts';
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Container } from '@/components/utils/Container';
 import { devicesData, osData, sizeData } from '@/components/data';
 import useIsCSR from '@/components/hooks/useIsCSR';
 import { color } from '@/components/color';
 
+const MAX_WIDTH = 1280;
+
 const VerticalBarRecharts = () => {
   const [data, setData] = useState(devicesData);
+  const [browserWidth, setBrowserWidth] = useState<number>(0);
 
-  const isCSR = useIsCSR();
-  if (!isCSR) return null;
+  useEffect(() => {
+    const innerWidth = window.innerWidth > MAX_WIDTH ? MAX_WIDTH : window.innerWidth;
+    setBrowserWidth(innerWidth);
+  }, []);
 
   const customLabelList = (props: any, key: string) => {
-    console.log(props);
     const { x, y, value, height } = props;
 
     const yCoordinate = y + height / 2;
@@ -27,7 +30,7 @@ const VerticalBarRecharts = () => {
           className="value"
           x={x + 10}
           y={yCoordinate}
-          fill={color.white}
+          fill={color.black}
           textAnchor="start"
           dominantBaseline="middle"
         >
@@ -42,9 +45,9 @@ const VerticalBarRecharts = () => {
       <g>
         <text
           className="value"
-          x={x + 680}
+          x={((x + 1135) * browserWidth) / MAX_WIDTH}
           y={yCoordinate}
-          fill={color.white}
+          fill={color.black}
           textAnchor="start"
           dominantBaseline="middle"
         >
@@ -52,9 +55,9 @@ const VerticalBarRecharts = () => {
         </text>
         <text
           className="value"
-          x={x + 700 + 40}
+          x={((x + 1160 + 40) * browserWidth) / MAX_WIDTH}
           y={yCoordinate}
-          fill={color.white}
+          fill={color.black}
           textAnchor="start"
           dominantBaseline="middle"
         >
@@ -74,73 +77,65 @@ const VerticalBarRecharts = () => {
     }
   };
 
+  const isCSR = useIsCSR();
+  if (!isCSR) return null;
+
   return (
-    <Container>
-      <VerticalBarRechartsSection>
-        <ResponsiveContainer>
-          <div>
-            <VerticalBarTitleWrapper>
-              <p>Devices</p>
-              <TypeWrapper>
-                <button type="button" onClick={() => handleChangeData('browser')}>
-                  Browser
-                </button>
-                <button type="button" onClick={() => handleChangeData('os')}>
-                  OS
-                </button>
-                <button type="button" onClick={() => handleChangeData('size')}>
-                  Size
-                </button>
-              </TypeWrapper>
-            </VerticalBarTitleWrapper>
-            <VerticalBarRechartsContainer>
-              <BarChartWrapper>
-                <VerticalBarTitleWrapper>
-                  <p>Browsers</p>
-                  <TypeWrapper>
-                    <p>Visitors</p>
-                    <p>%</p>
-                  </TypeWrapper>
-                </VerticalBarTitleWrapper>
-                <BarChart
-                  layout="vertical"
-                  className="barchart-hello"
-                  width={800}
-                  height={400}
-                  data={data}
-                  barCategoryGap={4}
-                  margin={{
-                    top: 20,
-                    right: 100,
-                    bottom: 20,
-                    left: 20,
-                  }}
-                >
-                  <XAxis type="number" hide={true} />
-                  <YAxis dataKey="type" type="category" scale="band" hide={true} />
-                  <Bar dataKey="visitors" fill="#313948">
-                    <LabelList dataKey="type" content={(props) => customLabelList(props, 'type')} />
-                    <LabelList dataKey="visitors" content={(props) => customLabelList(props, 'visitors')} />
-                  </Bar>
-                </BarChart>
-              </BarChartWrapper>
-            </VerticalBarRechartsContainer>
+    <div className="w-full bg-white pt-5">
+      <ResponsiveContainer width="100%" className="bg-gray-100">
+        <div className="flex flex-col">
+          <div className="flex items-center justify-between pl-5 pt-3 text-gray-400">
+            <p className="text-xl font-semibold text-gray-500">기기</p>
+            <div className="text-md flex gap-3 pr-2">
+              <button type="button" onClick={() => handleChangeData('browser')}>
+                브라우저
+              </button>
+              <button type="button" onClick={() => handleChangeData('os')}>
+                OS
+              </button>
+              <button type="button" onClick={() => handleChangeData('size')}>
+                Size
+              </button>
+            </div>
           </div>
-        </ResponsiveContainer>
-      </VerticalBarRechartsSection>
-    </Container>
+          <VerticalBarRechartsContainer>
+            <BarChartWrapper>
+              <VerticalBarTitleWrapper>
+                <p>브라우저</p>
+                <TypeWrapper>
+                  <p>유저수</p>
+                  <p>%</p>
+                </TypeWrapper>
+              </VerticalBarTitleWrapper>
+              <BarChart
+                layout="vertical"
+                width={MAX_WIDTH}
+                height={400}
+                data={data}
+                barCategoryGap={4}
+                margin={{
+                  top: 20,
+                  right: 120,
+                  bottom: 20,
+                  left: 20,
+                }}
+              >
+                <XAxis type="number" hide={true} />
+                <YAxis dataKey="type" type="category" scale="band" hide={true} />
+                <Bar dataKey="visitors" fill="#c5d5f1">
+                  <LabelList dataKey="type" content={(props) => customLabelList(props, 'type')} />
+                  <LabelList dataKey="visitors" content={(props) => customLabelList(props, 'visitors')} />
+                </Bar>
+              </BarChart>
+            </BarChartWrapper>
+          </VerticalBarRechartsContainer>
+        </div>
+      </ResponsiveContainer>
+    </div>
   );
 };
 
 export default VerticalBarRecharts;
-
-const VerticalBarRechartsSection = styled.section`
-  width: 100%;
-  height: 100vh;
-  background-color: #272f3e;
-  width: 820px;
-  height: 480px;
-`;
 
 const VerticalBarRechartsContainer = styled.div`
   width: 100%;
@@ -156,7 +151,7 @@ const BarChartWrapper = styled.div`
   flex-direction: column;
 
   p {
-    color: ${color.white};
+    color: black;
     font-size: 14px;
     font-weight: 600;
     margin-left: 20px;
@@ -169,15 +164,10 @@ const BarChartWrapper = styled.div`
     cursor: pointer;
 
     a {
-      fill: ${color.white};
+      fill: black;
     }
     &:hover {
       text-decoration: underline;
-    }
-  }
-
-  .barchart-hello {
-    svg {
     }
   }
 `;
@@ -189,7 +179,7 @@ const VerticalBarTitleWrapper = styled.div`
   margin-top: 20px;
 
   p {
-    color: ${color.white};
+    color: black;
     font-size: 20px;
     font-weight: 600;
     margin-left: 20px;
@@ -206,7 +196,7 @@ const TypeWrapper = styled.div`
     outline: none;
     cursor: pointer;
 
-    color: ${color.white};
+    color: black;
     font-size: 14px;
     font-weight: 600;
     margin-left: 8px;

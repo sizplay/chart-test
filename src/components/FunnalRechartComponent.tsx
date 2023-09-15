@@ -33,7 +33,7 @@ const FunnalRechartComponent = () => {
   };
 
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer className="bg-gray-100">
       <BarChart
         width={1200}
         height={600}
@@ -45,8 +45,8 @@ const FunnalRechartComponent = () => {
           bottom: 5,
         }}
       >
-        <XAxis dataKey="name" tick={{ stroke: color.white }} />
-        <YAxis tick={{ stroke: color.white }} tickFormatter={handleFormatYAxis} />
+        <XAxis dataKey="name" tick={{ stroke: color.black }} />
+        <YAxis tick={{ stroke: color.black }} tickFormatter={handleFormatYAxis} />
         <Tooltip cursor={false} />
         <Legend
           verticalAlign="middle"
@@ -71,7 +71,7 @@ interface CustomizedLegendProps {
 
 const CustomizedLegend = ({ data, handleCheckbox }: CustomizedLegendProps) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       {data.map((item) => {
         return (
           <div className="mb-3 flex items-center" key={item.name}>
@@ -82,7 +82,7 @@ const CustomizedLegend = ({ data, handleCheckbox }: CustomizedLegendProps) => {
               onChange={handleCheckbox}
               id={item.name}
             />
-            <p className="text-white">{item.name}</p>
+            <p className="text-black">{item.name}</p>
           </div>
         );
       })}

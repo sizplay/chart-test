@@ -7,7 +7,7 @@ const Home = () => {
       <div className="flex flex-row">
         <div className="mr-10 flex flex-col">
           <div className="text-xl font-bold">Recharts</div>
-          <Link className="text-blue-500 underline" href="/recharts">
+          {/* <Link className="text-blue-500 underline" href="/recharts">
             Recharts
           </Link>
           <Link className="text-blue-500 underline" href="/barRecharts">
@@ -30,11 +30,14 @@ const Home = () => {
           </Link>
           <Link className="text-blue-500 underline" href="/fourbarslineRecharts">
             fourbarsline recharts
+          </Link> */}
+          <Link className="text-blue-500 underline" href="/plausible">
+            plausible
           </Link>
         </div>
         <div className="flex flex-col">
           <div className="text-xl font-bold">Visx</div>
-          <Link className="text-blue-500 underline" href="/visx">
+          {/* <Link className="text-blue-500 underline" href="/visx">
             Visx
           </Link>
           <Link className="text-blue-500 underline" href="/barVisx">
@@ -42,7 +45,7 @@ const Home = () => {
           </Link>
           <Link className="text-blue-500 underline" href="/barStackVisx">
             bar stack visx
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
