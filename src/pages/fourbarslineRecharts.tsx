@@ -9,7 +9,7 @@ const FourBarsLineRecharts = () => {
     <div className="flex h-screen w-full justify-center px-4 pb-0 pt-12">
       <div className="flex w-full flex-col">
         <div className="text-2xl font-bold text-white">Four Bars Line Recharts</div>
-        <FourBarsLineRechartComponent />
+        {/* <FourBarsLineRechartComponent /> */}
       </div>
     </div>
   );
