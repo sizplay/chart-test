@@ -7,19 +7,40 @@ import { devicesData, osData, sizeData } from '@/components/data';
 import useIsCSR from '@/components/hooks/useIsCSR';
 import { color } from '@/components/color';
 
-const MAX_WIDTH = 1280;
+const MAX_WIDTH = 1280 / 2;
 
 const VerticalBarRecharts = () => {
   const [data, setData] = useState(devicesData);
   const [browserWidth, setBrowserWidth] = useState<number>(0);
 
   useEffect(() => {
+    const newData = data.map((item) => {
+      return {
+        ...item,
+        visitors: item.visitors,
+        pageview: item.pageview,
+        screen: item.screen,
+        click: item.click,
+        conversion: item.conversion,
+        ctr: ((item.click / item.pageview) * 100).toFixed(1),
+        conversionRate: ((item.conversion / item.pageview) * 100).toFixed(1),
+      };
+    });
+    setData(newData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  console.log(data);
+
+  useEffect(() => {
     const innerWidth = window.innerWidth > MAX_WIDTH ? MAX_WIDTH : window.innerWidth;
     setBrowserWidth(innerWidth);
   }, []);
 
-  const customLabelList = (props: any, key: string) => {
+  const customLabelList = (props: any, key: string, width: number) => {
     const { x, y, value, height } = props;
+
+    console.log(value);
 
     const yCoordinate = y + height / 2;
 
@@ -27,7 +48,7 @@ const VerticalBarRecharts = () => {
       return (
         <Link href="/">
           <text
-            x={x + 10}
+            x={x + width}
             y={yCoordinate}
             fill={color.grayColor}
             textAnchor="start"
@@ -40,27 +61,18 @@ const VerticalBarRecharts = () => {
       );
     }
 
-    const percentage = data.find((item) => item.visitors === value)?.percentage;
-
     return (
       <g>
         <text
-          x={((x + 1135) * browserWidth) / MAX_WIDTH}
+          x={((x + width) * browserWidth) / MAX_WIDTH / 2}
           y={yCoordinate}
           fill={color.grayColor}
-          textAnchor="start"
+          textAnchor="end"
           dominantBaseline="middle"
+          className="text-xs"
         >
           {value.toLocaleString()}
-        </text>
-        <text
-          x={((x + 1160 + 40) * browserWidth) / MAX_WIDTH}
-          y={yCoordinate}
-          fill={color.grayColor}
-          textAnchor="start"
-          dominantBaseline="middle"
-        >
-          {percentage}%
+          {key === 'ctr' || key === 'conversionRate' ? '%' : ''}
         </text>
       </g>
     );
@@ -70,9 +82,9 @@ const VerticalBarRecharts = () => {
     if (type === 'browser') {
       setData(devicesData);
     } else if (type === 'os') {
-      setData(osData);
+      // setData(osData);
     } else if (type === 'size') {
-      setData(sizeData);
+      // setData(sizeData);
     }
   };
 
@@ -80,7 +92,7 @@ const VerticalBarRecharts = () => {
   if (!isCSR) return null;
 
   return (
-    <div className="w-full bg-white pt-5">
+    <div className="w-full bg-white">
       <ResponsiveContainer width="100%" className="bg-gray-100">
         <div className="flex flex-col">
           <div className="flex items-center justify-between pl-5 pt-3 text-gray-400">
@@ -104,9 +116,13 @@ const VerticalBarRecharts = () => {
           <div className="">
             <div className="ml-5 mt-5 flex items-center justify-between">
               <p className="text-gray-500">브라우저</p>
-              <div className="mr-5 flex gap-10">
-                <p className="text-gray-500">유저수</p>
-                <p className="text-gray-500">%</p>
+              <div className="flex">
+                <p className="mr-7 text-xs text-gray-500">유저</p>
+                <p className="mr-7 text-xs text-gray-500">노출</p>
+                <p className="mr-4 text-xs text-gray-500">클릭</p>
+                <p className="mr-7 text-xs text-gray-500">클릭율</p>
+                <p className="mr-4 text-xs text-gray-500">전환</p>
+                <p className="mr-5 text-xs text-gray-500">전환율</p>
               </div>
             </div>
             <BarChart
@@ -117,16 +133,25 @@ const VerticalBarRecharts = () => {
               barCategoryGap={4}
               margin={{
                 top: 20,
-                right: 120,
+                right: 20,
                 bottom: 20,
                 left: 20,
               }}
             >
               <XAxis type="number" hide={true} />
               <YAxis dataKey="type" type="category" scale="band" hide={true} />
-              <Bar dataKey="visitors" fill="#c5d5f1">
-                <LabelList dataKey="type" content={(props) => customLabelList(props, 'type')} />
-                <LabelList dataKey="visitors" content={(props) => customLabelList(props, 'visitors')} />
+              <Bar dataKey="pageview" fill="#c5d5f1">
+                <LabelList dataKey="type" content={(props) => customLabelList(props, 'type', 10)} />
+                {/* <LabelList dataKey="visitors" content={(props) => customLabelList(props, 'visitors', 625)} /> */}
+                <LabelList dataKey="pageview" content={(props) => customLabelList(props, 'pageview', 725)} />
+                <LabelList dataKey="screen" content={(props) => customLabelList(props, 'screen', 825)} />
+                <LabelList dataKey="click" content={(props) => customLabelList(props, 'click', 925)} />
+                <LabelList dataKey="ctr" content={(props) => customLabelList(props, 'ctr', 1025)} />
+                <LabelList dataKey="conversion" content={(props) => customLabelList(props, 'conversion', 1125)} />
+                <LabelList
+                  dataKey="conversionRate"
+                  content={(props) => customLabelList(props, 'conversionRate', 1225)}
+                />
               </Bar>
             </BarChart>
           </div>

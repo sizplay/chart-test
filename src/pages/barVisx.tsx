@@ -44,7 +44,7 @@ const BarChart = () => {
 
   const handleChangeData = () => {
     if (data.length === 9) {
-      setData(sizeData);
+      // setData(sizeData);
     }
     if (data.length === 4) {
       setData(devicesData);
@@ -92,7 +92,7 @@ const BarChart = () => {
               textAnchor="end"
               fill="white"
             >
-              {d.percentage}%
+              {/* {d.percentage}% */}
             </text>
           </g>
         ))}

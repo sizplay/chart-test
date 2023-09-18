@@ -49,11 +49,17 @@ const PlausibleComponent = () => {
         <FourBarsLineRechartComponent selections={selections} />
       </div>
       <ConversionIndication />
-      <VerticalBarRecharts />
-      <div className="pt-5" />
-      <VerticalBarComponent data={topSources} />
       <div className="pt-5" />
       <CampainTable />
+      <div className="flex items-stretch pt-5 ">
+        <div className="w-2/4 ">
+          <VerticalBarRecharts />
+        </div>
+        <div className="ml-5 w-2/4 bg-gray-100">
+          <VerticalBarComponent data={topSources} />
+        </div>
+      </div>
+      <div className="pt-5" />
     </main>
   );
 };

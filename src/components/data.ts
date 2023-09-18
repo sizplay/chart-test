@@ -125,15 +125,29 @@ export const conversionData = [
 ];
 
 export const devicesData = [
-  { type: 'Chrome', visitors: 77067, percentage: 56.8 },
-  { type: 'Safari', visitors: 29451, percentage: 21.7 },
-  { type: 'Firefox', visitors: 20936, percentage: 15.4 },
-  { type: 'Microsoft Edge', visitors: 5601, percentage: 4.1 },
-  { type: 'Opera', visitors: 760, percentage: 0.6 },
-  { type: 'Mobile App', visitors: 615, percentage: 0.5 },
-  { type: 'DuckDuckGo Privacy Browser', visitors: 301, percentage: 0.2 },
-  { type: 'Samsung Browser', visitors: 204, percentage: 0.2 },
-  { type: 'Yandex Browser', visitors: 79, percentage: 0.1 },
+  {
+    type: 'Chrome',
+    visitors: 77067,
+    pageview: 61003,
+    screen: 39003,
+    click: 26754,
+    conversion: 19445,
+  },
+  {
+    type: 'Safari',
+    visitors: 29451,
+    pageview: 21003,
+    screen: 9033,
+    click: 2675,
+    conversion: 1944,
+  },
+  { type: 'Firefox', visitors: 20936, pageview: 11003, screen: 5033, click: 2675, conversion: 1544 },
+  { type: 'Microsoft Edge', visitors: 5601, pageview: 2003, screen: 1033, click: 675, conversion: 344 },
+  { type: 'Opera', visitors: 760, pageview: 403, screen: 233, click: 75, conversion: 52 },
+  { type: 'Mobile App', visitors: 615, pageview: 303, screen: 133, click: 55, conversion: 22 },
+  { type: 'DuckDuckGo Privacy Browser', visitors: 301, pageview: 203, screen: 133, click: 65, conversion: 12 },
+  { type: 'Samsung Browser', visitors: 204, pageview: 103, screen: 73, click: 35, conversion: 8 },
+  { type: 'Yandex Browser', visitors: 79, pageview: 43, screen: 23, click: 15, conversion: 3 },
 ];
 
 export const osData = [
@@ -377,14 +391,40 @@ export const campaignData = [
   },
 ];
 
+export const devicesData2 = [
+  {
+    type: 'Chrome',
+    visitors: 77067,
+    pageview: 61003,
+    screen: 39003,
+    click: 26754,
+    conversion: 19445,
+  },
+  {
+    type: 'Safari',
+    visitors: 29451,
+    pageview: 21003,
+    screen: 9033,
+    click: 2675,
+    conversion: 1944,
+  },
+  { type: 'Firefox', visitors: 20936, pageview: 11003, screen: 5033, click: 2675, conversion: 1544 },
+  { type: 'Microsoft Edge', visitors: 5601, pageview: 2003, screen: 1033, click: 675, conversion: 344 },
+  { type: 'Opera', visitors: 760, pageview: 403, screen: 233, click: 75, conversion: 52 },
+  { type: 'Mobile App', visitors: 615, pageview: 303, screen: 133, click: 55, conversion: 22 },
+  { type: 'DuckDuckGo Privacy Browser', visitors: 301, pageview: 203, screen: 133, click: 65, conversion: 12 },
+  { type: 'Samsung Browser', visitors: 204, pageview: 103, screen: 73, click: 35, conversion: 8 },
+  { type: 'Yandex Browser', visitors: 79, pageview: 43, screen: 23, click: 15, conversion: 3 },
+];
+
 export const topSources = [
-  { title: 'Direct / None', visitors: 108000 },
-  { title: 'Google', visitors: 105000 },
-  { title: 'GitHub', visitors: 85000 },
-  { title: 'DuckDuckGo', visitors: 48000 },
-  { title: 'Twitter', visitors: 32000 },
-  { title: 'Bing', visitors: 30000 },
-  { title: 'Reddit', visitors: 25000 },
-  { title: 'opensource.com', visitors: 20000 },
-  { title: 'indiehackers.com', visitors: 18000 },
+  { title: 'Direct / None', visitors: 108000, screen: 77067, click: 61003, conversion: 39003 },
+  { title: 'Google', visitors: 105000, screen: 69451, click: 51003, conversion: 36365 },
+  { title: 'GitHub', visitors: 85000, screen: 49033, click: 22675, conversion: 11944 },
+  { title: 'DuckDuckGo', visitors: 48000, screen: 29033, click: 12675, conversion: 5944 },
+  { title: 'Twitter', visitors: 32000, screen: 19033, click: 11675, conversion: 3944 },
+  { title: 'Bing', visitors: 30000, screen: 15033, click: 9675, conversion: 2944 },
+  { title: 'Reddit', visitors: 25000, screen: 12033, click: 7675, conversion: 1944 },
+  { title: 'opensource.com', visitors: 20000, screen: 10033, click: 5675, conversion: 944 },
+  { title: 'indiehackers.com', visitors: 18000, screen: 9033, click: 4675, conversion: 794 },
 ];
