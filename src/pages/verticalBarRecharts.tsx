@@ -3,7 +3,7 @@
 import { Bar, BarChart, XAxis, YAxis, ResponsiveContainer, LabelList } from 'recharts';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { devicesData, osData, sizeData } from '@/components/data';
+import { devicesData } from '@/components/data';
 import useIsCSR from '@/components/hooks/useIsCSR';
 import { color } from '@/components/color';
 

@@ -30,7 +30,7 @@ const PlausibleComponent = () => {
   };
 
   return (
-    <main className="w-screen h-screen pt-5 m-auto max-w-7xl">
+    <main className="m-auto h-screen w-screen max-w-7xl pt-5">
       <div className="flex items-center justify-between px-5">
         <div className="flex items-center">
           <BarChart3 size={30} className="text-gray-400" />
@@ -38,7 +38,7 @@ const PlausibleComponent = () => {
         </div>
         <div className="flex items-center">
           <p className="mr-2 text-sm text-gray-400">2021년 9월 1일 ~ 2021년 9월 7일</p>
-          <div className="flex items-center justify-center h-10 bg-white rounded-lg shadow-md w-28">
+          <div className="flex h-10 w-28 items-center justify-center rounded-lg bg-white shadow-md">
             <p className="text-sm text-gray-400">마지막 7일</p>
           </div>
         </div>
@@ -55,7 +55,7 @@ const PlausibleComponent = () => {
         <div className="w-2/4 ">
           <VerticalBarRecharts />
         </div>
-        <div className="w-2/4 ml-5 bg-gray-100">
+        <div className="ml-5 w-2/4 bg-gray-100">
           <VerticalBarComponent data={topSources} />
         </div>
       </div>

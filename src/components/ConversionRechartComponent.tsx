@@ -227,7 +227,7 @@ const ConversionRechartComponent = () => {
                           fontSize="0.6em"
                           fill="#666"
                           transform=""
-                          className="cursor-pointer transition-opacity-text"
+                          className="transition-opacity-text cursor-pointer"
                         >
                           {data.event.name}
                         </text>
@@ -239,7 +239,7 @@ const ConversionRechartComponent = () => {
                               y={(index + 1) * 11 + 548}
                               fontSize="0.6em"
                               fill="#666"
-                              className="cursor-pointer transition-opacity-text"
+                              className="transition-opacity-text cursor-pointer"
                             >
                               {time}
                             </text>
@@ -252,7 +252,7 @@ const ConversionRechartComponent = () => {
                         y="548"
                         fontSize="0.6em"
                         fill="#666"
-                        className="cursor-pointer transition-opacity-text"
+                        className="transition-opacity-text cursor-pointer"
                       >
                         {data.event.name}
                       </text>

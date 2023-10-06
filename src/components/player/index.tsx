@@ -7,9 +7,13 @@ import screenfull from 'screenfull';
 import { Slider } from 'antd';
 import { timeFormat } from './utils';
 
+interface PlayerComponentProps {
+  url: string;
+}
+
 const VideoPlayer = dynamic(() => import('./VideoPlayer'), { ssr: false });
 
-const PlayerComponent = () => {
+const PlayerComponent = ({ url }: PlayerComponentProps) => {
   const fullScreenRef = useRef(null);
   const playerRef = useRef<ReactPlayer>(null);
 
@@ -17,8 +21,8 @@ const PlayerComponent = () => {
   const [isRepeat, setIsRepeat] = useState(false);
   const [volumes, setVolumes] = useState<number>(50);
   const [played, setPlayed] = useState<number>(0);
-  const [seekTime, setSeekTime] = useState('0:00');
   const [seeking, setSeeking] = useState(false);
+  const [seekTime, setSeekTime] = useState('0:00');
   const [showVolumeSlider, setShowVolumeSlider] = useState(false);
   const [isEnded, setIsEnded] = useState(false);
 
@@ -127,7 +131,7 @@ const PlayerComponent = () => {
           volumes={volumes}
           isPlaying={isPlaying}
           // url="https://www.youtube.com/watch?v=NNS5Piu-EII"
-          url="https://www.youtube.com/shorts/g6Epd6JBkyQ"
+          url={url}
           playerRef={playerRef}
           onProgress={(e) => onProgress(e)}
           isRepeat={isRepeat}
@@ -169,10 +173,10 @@ const PlayerComponent = () => {
             <Play onClick={handlePlaying} className="cursor-pointer text-white hover:text-gray-400" />
           )}
           {volumes === 0 ? (
-            <VolumeX onClick={() => handleMuting(1)} className="ml-5 cursor-pointer text-white hover:text-gray-400" />
+            <VolumeX onClick={() => handleMuting(1)} className="ml-3 cursor-pointer text-white hover:text-gray-400" />
           ) : (
             <div
-              className="ml-5 flex items-center gap-2"
+              className="ml-3 flex items-center gap-2"
               onMouseEnter={() => setShowVolumeSlider(true)}
               onMouseLeave={() => setShowVolumeSlider(false)}
             >

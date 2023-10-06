@@ -1,13 +1,22 @@
 import PlayerComponent from '@/components/player';
+import { Input } from 'antd';
+import { useState } from 'react';
 
 const Player: React.FC = () => {
+  const [url, setUrl] = useState<string>('https://www.youtube.com/shorts/g6Epd6JBkyQ');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUrl(e.target.value);
+  };
+
   return (
-    <div>
-      <h1>Player</h1>
-      <div className="flex items-center justify-center">
-        <div className="w-1/2 h-auto">
-          <PlayerComponent />
+    <div className="flex h-screen items-center justify-center">
+      <div className="h-auto w-1/2">
+        <div className="flex items-center">
+          <Input type="text" id="url-input" onChange={handleChange} className="w-full" value={url} />
         </div>
+
+        <PlayerComponent url={url} />
       </div>
     </div>
   );
