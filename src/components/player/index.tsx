@@ -67,7 +67,6 @@ const PlayerComponent = () => {
   const handlePlay = () => {
     if (!isPlaying) {
       setIsPlaying(true);
-      setSeekTime('0:00');
     }
   };
 
@@ -100,7 +99,7 @@ const PlayerComponent = () => {
 
   const onProgress = (e: ReactPlayerProps) => {
     console.log(e.playedSeconds, e.playedSeconds);
-    setSeekTime(timeFormat(Math.round(e.playedSeconds)));
+    setSeekTime(timeFormat(Math.ceil(e.playedSeconds)));
   };
 
   const handleEnded = () => {
