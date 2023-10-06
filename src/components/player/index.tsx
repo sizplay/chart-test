@@ -35,8 +35,9 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
 
   const handleFullScreen = () => {
     if (screenfull.isEnabled && fullScreenRef.current) {
+      // screenfull.toggle(findDOMNode(fullScreenRef.current) as Element);
       // eslint-disable-next-line react/no-find-dom-node
-      screenfull.toggle(findDOMNode(fullScreenRef.current) as Element);
+      screenfull.request(findDOMNode(fullScreenRef.current) as Element);
     }
   };
 
@@ -104,6 +105,10 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
   const onProgress = (e: ReactPlayerProps) => {
     console.log(e.playedSeconds, e.playedSeconds);
     setSeekTime(timeFormat(Math.ceil(e.playedSeconds)));
+
+    if (seekTime > '0:00') {
+      handleFullScreen();
+    }
   };
 
   const handleEnded = () => {

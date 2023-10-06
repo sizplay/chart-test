@@ -32,4 +32,6 @@ export default Player;
 // react-player는 ssr을 지원하지 않아서 dynamic import를 사용했다.
 // 그리고 풀스크린을 위해서는 ref를 사용해야 한다.
 // 그리고 풀스크린을 위해서는 screenfull을 사용해야 한다.
-//
+
+// 다른 브라우저에서 오토 재생과 풀스크린이 되는지 확인 뮤트가 되어 있는지 확인
+// 로컬 파일이 재생이 되는지 확인
