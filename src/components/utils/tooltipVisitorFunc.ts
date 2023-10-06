@@ -34,14 +34,14 @@ export const tooltipVisitorFunc = ({ visitor1, visitor2, visitorDate1, visitorDa
 };
 
 export const tooltipLinesFunc = (visitorDate: string) => {
-  const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  const date1 = new Date(visitorDate);
-  const day1 = weekday[date1.getDay()];
-  const month1 = month[date1.getMonth() + 1];
-  const dateDay1 = date1.getDate();
-  const firstDate = `${day1}, ${dateDay1} ${month1}`;
+  const date = new Date(visitorDate);
+  const day = weekdays[date.getDay()];
+  const month = months[date.getMonth() + 1];
+  const dateDay = date.getDate();
+  const firstDate = `${day}, ${dateDay} ${month}`;
 
   return {
     firstDate,

@@ -10,7 +10,7 @@ interface IndicatedInformationProps {
 const IndicatedInformation = ({ selections, handleSelections }: IndicatedInformationProps) => {
   return (
     <section className="block w-full">
-      <article className="mx-2 grid grid-cols-6 gap-3">
+      <article className="grid grid-cols-6 gap-3 mx-2">
         {indicatedData.map((data) => {
           return (
             <IndicatedBox

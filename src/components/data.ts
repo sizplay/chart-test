@@ -299,7 +299,7 @@ export const conversionIndicationData = [
   { title: '추가' },
   { title: '추가' },
 ];
-
+// users, impressions, clicks, ctr, conversions, cvr;
 export const campaignData = [
   {
     title: '신학기 쿠폰이 내려요',
@@ -427,4 +427,191 @@ export const topSources = [
   { title: 'Reddit', visitors: 25000, screen: 12033, click: 7675, conversion: 1944 },
   { title: 'opensource.com', visitors: 20000, screen: 10033, click: 5675, conversion: 944 },
   { title: 'indiehackers.com', visitors: 18000, screen: 9033, click: 4675, conversion: 794 },
+];
+
+const indicatedData_test = {
+  total_data: {
+    users: 33480000,
+    users_percentage: 58.94,
+    users_percentage_per_previous: 'down',
+    impressions: 23960000,
+    impressions_percentage: 52.09,
+    impressions_percentage_per_previous: 'up',
+    clicks: 206700,
+    clicks_percentage: 93.48,
+    clicks_percentage_per_previous: 'up',
+    ctr: 0.86,
+    ctr_percentage: 86.38,
+    ctr_percentage_per_previous: 'up',
+    conversions: 3460000,
+    conversions_percentage: 46.08,
+    conversions_percentage_per_previous: 'up',
+    cvr: 14.43,
+    cvr_percentage: 12.54,
+    cvr_percentage_per_previous: 'up',
+  },
+  graph_data: [
+    { date: '7/12', users: 6100, screen: 3900, click: 2900, conversion: 1900 },
+    { date: '7/13', users: 5700, screen: 3200, click: 2200, conversion: 1200 },
+    { date: '7/14', users: 4700, screen: 2800, click: 1800, conversion: 800 },
+    { date: '7/15', users: 2900, screen: 1800, click: 1800, conversion: 800 },
+    { date: '7/16', users: 2800, screen: 2000, click: 1000, conversion: 500 },
+    { date: '7/17', users: 5600, screen: 4100, click: 3100, conversion: 2100 },
+    { date: '7/18', users: 5700, screen: 4000, click: 3000, conversion: 2000 },
+    { date: '7/19', users: 5600, screen: 3600, click: 2600, conversion: 1600 },
+    { date: '7/20', users: 5100, screen: 3300, click: 2300, conversion: 1300 },
+    { date: '7/21', users: 4600, screen: 3800, click: 1800, conversion: 800 },
+    { date: '7/22', users: 2800, screen: 1700, click: 700, conversion: 350 },
+  ],
+};
+
+const conversionIndicationData_test = {
+  clicks: {
+    value: 206700,
+    total: 23960000,
+  },
+  conversions: {
+    value: 1800000,
+    total: 5810000,
+  },
+  join_users: {
+    value: 700000,
+    total: 5810000,
+  },
+  participants: {
+    value: 450000,
+    total: 5810000,
+  },
+  information: {
+    value: 210000,
+    total: 3810000,
+  },
+  coupon_downloads: {
+    value: 354000,
+    total: 5810000,
+  },
+};
+
+export const campaignData_test = [
+  {
+    title: '신학기 쿠폰이 내려요',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+  {
+    title: '[재구매 유도] 10% 할인 쿠폰',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+  {
+    title: '가정의 달 선물 기획전',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+  {
+    title: '여름 특가 세일',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+  {
+    title: '[첫 구매 유도] 10% 할인 쿠폰',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+  {
+    title: '30% 타임 세일 온라인 이벤트',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+  {
+    title: '[재구매 유도] 10% 할인 쿠폰',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+  {
+    title: '가정의 달 선물 기획전',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+  {
+    title: '여름 특가 세일',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    conversions: 1900,
+  },
+  {
+    title: '[첫 구매 유도] 10% 할인 쿠폰',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+  {
+    title: '30% 타임 세일 온라인 이벤트',
+    users: 6100,
+    impressions: 3900,
+    clicks: 2900,
+    ctr: 0.86,
+    conversions: 1900,
+    cvr: 14.43,
+  },
+];
+
+export const devicesData_test = [
+  { type: 'Chrome', users: 61003, impressions: 39003, clicks: 26754, conversions: 19445 },
+  { type: 'Safari', users: 21003, impressions: 9033, clicks: 2675, conversions: 1944 },
+  { type: 'Firefox', users: 11003, impressions: 5033, clicks: 2675, conversions: 1544 },
+  { type: 'Microsoft Edge', users: 2003, impressions: 1033, clicks: 675, conversions: 344 },
+  { type: 'Opera', users: 403, impressions: 233, clicks: 75, conversions: 52 },
+  { type: 'Mobile App', users: 303, impressions: 133, clicks: 55, conversions: 22 },
+  { type: 'DuckDuckGo Privacy Browser', users: 203, impressions: 133, clicks: 65, conversions: 12 },
+  { type: 'Samsung Browser', users: 103, impressions: 73, clicks: 35, conversions: 8 },
+  { type: 'Yandex Browser', users: 43, impressions: 23, clicks: 15, conversions: 3 },
+];
+
+export const topSources_test = [
+  { title: 'Direct / None', users: 108000, impressions: 77067, clicks: 61003, conversions: 39003 },
+  { title: 'Google', users: 105000, impressions: 69451, clicks: 51003, conversions: 36365 },
+  { title: 'GitHub', users: 85000, impressions: 49033, clicks: 22675, conversions: 11944 },
+  { title: 'DuckDuckGo', users: 48000, impressions: 29033, clicks: 12675, conversions: 5944 },
+  { title: 'Twitter', users: 32000, impressions: 19033, clicks: 11675, conversions: 3944 },
+  { title: 'Bing', users: 30000, impressions: 15033, clicks: 9675, conversions: 2944 },
+  { title: 'Reddit', users: 25000, impressions: 12033, clicks: 7675, conversions: 1944 },
+  { title: 'opensource.com', users: 20000, impressions: 10033, clicks: 5675, conversions: 944 },
+  { title: 'indiehackers.com', users: 18000, impressions: 9033, clicks: 4675, conversions: 794 },
 ];

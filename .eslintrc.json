@@ -1,15 +1,9 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./tsconfig.json",
-    "sourceType": "module"
-  },
   "env": {
-    "node": true,
     "browser": true,
-    "es6": true
+    "es6": true,
+    "node": true
   },
-  "plugins": ["react", "react-hooks", "import", "@typescript-eslint", "prettier"],
   "extends": [
     "airbnb",
     "airbnb-base",
@@ -25,22 +19,51 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:tailwindcss/recommended"
   ],
+  "ignorePatterns": [
+    "node_modules/",
+    "next.config.js",
+    "tsconfig.json"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "import",
+    "@typescript-eslint",
+    "prettier"
+  ],
   "rules": {
-    "prettier/prettier":"error",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/jsx-boolean-value": "off",
-    "react/require-default-props": "off",
-    "react/no-danger": "off",
-    "react/jsx-no-useless-fragment": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-filename-extension": [
+    "@next/next/no-img-element": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-var-requires": "off",
+    "camelcase": "off",
+    "import/extensions": [
+      "off"
+    ],
+    "import/no-extraneous-dependencies": [
       "error",
       {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "devDependencies": true
       }
     ],
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "no-console": "off",
+    "no-empty-pattern": "off",
+    "no-shadow": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": "warn",
+    "no-use-before-define": "off",
+    "prettier/prettier": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
     "react/function-component-definition": [
       "warn",
       {
@@ -48,40 +71,39 @@
         "unnamedComponents": "arrow-function"
       }
     ],
-    "import/extensions": ["off"],
-    "camelcase": "off",
-    "@typescript-eslint/ban-types": "off",
-    "react/prop-types": "off",
-    "import/no-unresolved": "off",
-    "import/prefer-default-export": "off",
-    "no-use-before-define": "off",
-    "no-empty-pattern": "off",
-    "no-unused-vars": "warn",
-    "no-console": "off",
-    "no-shadow": "off",
-    "no-underscore-dangle": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "import/no-extraneous-dependencies": [
+    "react/jsx-boolean-value": "off",
+    "react/jsx-filename-extension": [
       "error",
       {
-        "devDependencies": true
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     ],
-    "@next/next/no-img-element": "off"
+    "react/jsx-no-useless-fragment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-danger": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "tailwindcss/classnames-order": "off"
   },
   "settings": {
-    "react": {
-      "version": "detect"
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx",
+        ".js"
+      ]
     },
     "import/resolver": {
       "typescript": {}
     },
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx", ".js"]
+    "react": {
+      "version": "detect"
     }
-  },
-  "ignorePatterns": ["node_modules/", "next.config.js", "tsconfig.json"]
+  }
 }
