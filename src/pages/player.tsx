@@ -1,10 +1,13 @@
 import PlayerComponent from '@/components/player';
-import { Button, Upload, UploadProps } from 'antd';
+import { Input, Button, Upload, UploadProps } from 'antd';
 import { useState } from 'react';
 
 const Player: React.FC = () => {
-  const testUrl = 'https://www.youtube.com/shorts/g6Epd6JBkyQ';
   const [url, setUrl] = useState<string>('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUrl(e.target.value);
+  };
 
   const props: UploadProps = {
     name: 'file',
@@ -16,6 +19,14 @@ const Player: React.FC = () => {
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="h-auto w-1/2">
+        <Input
+          type="text"
+          id="url-input"
+          onChange={handleChange}
+          className="mb-3 w-full"
+          value={url}
+          placeholder="youtube url을 추가해주세요"
+        />
         <PlayerComponent url={url} />
         <div className="mt-3 flex items-center justify-start">
           <Upload {...props}>
