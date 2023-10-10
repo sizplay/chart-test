@@ -25,6 +25,7 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
   const [seekTime, setSeekTime] = useState('0:00');
   const [showVolumeSlider, setShowVolumeSlider] = useState(false);
   const [isEnded, setIsEnded] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(true);
 
   useEffect(() => {
     if (isRepeat && isPlaying) {
@@ -87,12 +88,12 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
 
   const handleSeekMouseUp = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSeeking(false);
-    console.log(parseFloat(e.target.value));
+    // console.log(parseFloat(e.target.value));
     playerRef.current?.seekTo(parseFloat(e.target.value), 'fraction');
   };
 
   const handleSeekChange = (e: any) => {
-    console.log('handleSeekChange', e.target.value);
+    // console.log('handleSeekChange', e.target.value);
     setPlayed(parseFloat(e.target.value));
     // setSeekTime(value);
     // setPlayed(parseFloat(e.target.value));
@@ -103,11 +104,16 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
   };
 
   const onProgress = (e: ReactPlayerProps) => {
-    console.log(e.playedSeconds, e.playedSeconds);
+    // console.log(e.playedSeconds, e.playedSeconds);
     setSeekTime(timeFormat(Math.ceil(e.playedSeconds)));
 
-    if (seekTime > '0:00') {
+    if (!seeking) {
+      setPlayed(e.played);
+    }
+
+    if (seekTime > '0:00' && seekTime < '0:02' && isFullScreen) {
       handleFullScreen();
+      setIsFullScreen(false);
     }
   };
 
@@ -128,7 +134,7 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
   // console.log(playerRef?.current?.getSecondsLoaded(), timeFormat(Number(playerRef?.current?.getSecondsLoaded())));
   // console.log(playerRef?.current);
   // console.log(playerRef?.current?.getDuration());
-  console.log(seekTime);
+  // console.log(seekTime);
   return (
     <article className="flex h-auto w-auto flex-col bg-black">
       <div className="relative pt-[56.25%]" ref={fullScreenRef}>
@@ -222,3 +228,5 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
 };
 
 export default PlayerComponent;
+
+// !로컬 파일이 재생이 되는지 확인

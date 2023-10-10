@@ -1,22 +1,27 @@
 import PlayerComponent from '@/components/player';
-import { Input } from 'antd';
+import { Button, Upload, UploadProps } from 'antd';
 import { useState } from 'react';
 
 const Player: React.FC = () => {
-  const [url, setUrl] = useState<string>('https://www.youtube.com/shorts/g6Epd6JBkyQ');
+  const testUrl = 'https://www.youtube.com/shorts/g6Epd6JBkyQ';
+  const [url, setUrl] = useState<string>('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUrl(e.target.value);
+  const props: UploadProps = {
+    name: 'file',
+    onChange(info) {
+      setUrl(URL.createObjectURL(new Blob([info.file.originFileObj as BlobPart], { type: info.file.type })));
+    },
   };
 
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="h-auto w-1/2">
-        <div className="flex items-center">
-          <Input type="text" id="url-input" onChange={handleChange} className="w-full" value={url} />
-        </div>
-
         <PlayerComponent url={url} />
+        <div className="mt-3 flex items-center justify-start">
+          <Upload {...props}>
+            <Button>Click to Upload</Button>
+          </Upload>
+        </div>
       </div>
     </div>
   );
@@ -32,6 +37,3 @@ export default Player;
 // react-player는 ssr을 지원하지 않아서 dynamic import를 사용했다.
 // 그리고 풀스크린을 위해서는 ref를 사용해야 한다.
 // 그리고 풀스크린을 위해서는 screenfull을 사용해야 한다.
-
-// 다른 브라우저에서 오토 재생과 풀스크린이 되는지 확인 뮤트가 되어 있는지 확인
-// 로컬 파일이 재생이 되는지 확인

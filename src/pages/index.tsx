@@ -48,6 +48,9 @@ const Home = () => {
           </Link> */}
         </div>
       </div>
+      <Link className="text-blue-500 underline" href="/player">
+        player
+      </Link>
     </div>
   );
 };
