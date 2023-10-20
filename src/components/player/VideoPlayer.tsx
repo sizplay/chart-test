@@ -1,4 +1,4 @@
-import ReactPlayer, { ReactPlayerProps } from 'react-player/lazy';
+import ReactPlayer, { ReactPlayerProps } from "react-player/lazy";
 
 interface VideoPlayerProps {
   volumes: number;

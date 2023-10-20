@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const FunnalRechartComponent = dynamic(() => import('@/components/FunnalRechartComponent'), { ssr: false });
+const FunnalRechartComponent = dynamic(() => import("@/components/FunnalRechartComponent"), { ssr: false });
 
 const FunnalRecharts = () => {
   return (

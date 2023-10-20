@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import { BarGroupHorizontal, Bar } from '@visx/shape';
-import { Group } from '@visx/group';
-import { AxisLeft } from '@visx/axis';
-import cityTemperature, { CityTemperature } from '@visx/mock-data/lib/mocks/cityTemperature';
-import { scaleBand, scaleLinear, scaleOrdinal } from '@visx/scale';
-import { Container } from '@/components/utils/Container';
-import { devicesData } from '@/components/data';
+import React from "react";
+import { BarGroupHorizontal, Bar } from "@visx/shape";
+import { Group } from "@visx/group";
+import { AxisLeft } from "@visx/axis";
+import cityTemperature, { CityTemperature } from "@visx/mock-data/lib/mocks/cityTemperature";
+import { scaleBand, scaleLinear, scaleOrdinal } from "@visx/scale";
+import { Container } from "@/components/utils/Container";
+import { devicesData } from "@/components/data";
 
 export type BarGroupHorizontalProps = {
   width: number;
@@ -14,12 +14,12 @@ export type BarGroupHorizontalProps = {
   margin?: { top: number; right: number; bottom: number; left: number };
 };
 
-type CityName = 'New York' | 'San Francisco' | 'Austin';
+type CityName = "New York" | "San Francisco" | "Austin";
 
-const blue = '#aeeef8';
-export const green = '#e5fd3d';
-const purple = '#9caff6';
-export const background = '#612efb';
+const blue = "#aeeef8";
+export const green = "#e5fd3d";
+const purple = "#9caff6";
+export const background = "#612efb";
 const defaultMargin = { top: 20, right: 20, bottom: 20, left: 50 };
 
 function max<D>(arr: D[], fn: (d: D) => number) {
@@ -27,7 +27,7 @@ function max<D>(arr: D[], fn: (d: D) => number) {
 }
 
 const data = cityTemperature.slice(0, 4);
-const keys = Object.keys(data[0]).filter((d) => d !== 'date') as CityName[];
+const keys = Object.keys(data[0]).filter((d) => d !== "date") as CityName[];
 const getDate = (d: CityTemperature) => d.date;
 
 const data1 = devicesData;
@@ -128,8 +128,8 @@ const Example = ({ width = 1200, height = 600, margin = defaultMargin }: BarGrou
             tickLabelProps={{
               fill: green,
               fontSize: 11,
-              textAnchor: 'end',
-              dy: '0.33em',
+              textAnchor: "end",
+              dy: "0.33em",
             }}
           />
         </Group>
@@ -174,8 +174,8 @@ const Example = ({ width = 1200, height = 600, margin = defaultMargin }: BarGrou
             tickLabelProps={{
               fill: green,
               fontSize: 11,
-              textAnchor: 'end',
-              dy: '0.33em',
+              textAnchor: "end",
+              dy: "0.33em",
             }}
           />
         </Group>

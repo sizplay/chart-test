@@ -1,16 +1,16 @@
-import PlayerComponent from '@/components/player';
-import { Input, Button, Upload, UploadProps } from 'antd';
-import { useState } from 'react';
+import PlayerComponent from "@/components/player";
+import { Input, Button, Upload, UploadProps } from "antd";
+import { useState } from "react";
 
 const Player: React.FC = () => {
-  const [url, setUrl] = useState<string>('');
+  const [url, setUrl] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUrl(e.target.value);
   };
 
   const props: UploadProps = {
-    name: 'file',
+    name: "file",
     onChange(info) {
       setUrl(URL.createObjectURL(new Blob([info.file.originFileObj as BlobPart], { type: info.file.type })));
     },

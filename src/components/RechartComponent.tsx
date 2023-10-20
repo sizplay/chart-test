@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
-import styled from '@emotion/styled';
-import { CartesianGrid, ComposedChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { color } from './color';
-import { Container } from './utils/Container';
-import useIsCSR from './hooks/useIsCSR';
+import styled from "@emotion/styled";
+import { CartesianGrid, ComposedChart, Tooltip, XAxis, YAxis } from "recharts";
+import { color } from "./color";
+import { Container } from "./utils/Container";
+import useIsCSR from "./hooks/useIsCSR";
 
 interface RechartProps {
   handleChangeSelect: (e: React.ChangeEvent<HTMLSelectElement>) => void;

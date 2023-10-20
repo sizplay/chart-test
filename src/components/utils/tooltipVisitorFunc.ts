@@ -6,8 +6,8 @@ interface TooltipVisitorFunc {
 }
 
 export const tooltipVisitorFunc = ({ visitor1, visitor2, visitorDate1, visitorDate2 }: TooltipVisitorFunc) => {
-  const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   const date1 = new Date(visitorDate1);
   const date2 = new Date(visitorDate2);
@@ -34,8 +34,8 @@ export const tooltipVisitorFunc = ({ visitor1, visitor2, visitorDate1, visitorDa
 };
 
 export const tooltipLinesFunc = (visitorDate: string) => {
-  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   const date = new Date(visitorDate);
   const day = weekdays[date.getDay()];

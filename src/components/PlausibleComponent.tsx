@@ -1,14 +1,14 @@
-import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
-import VerticalBarRecharts from '@/pages/verticalBarRecharts';
-import { BarChart3 } from 'lucide-react';
-import IndicatedInformation from './plausible/IndicatedInformation';
-import { indicatedData, indicatedTitles, topSources } from './data';
-import ConversionIndication from './plausible/ConversionIndication';
-import CampainTable from './plausible/CampainTable';
-import VerticalBarComponent from './VerticalBarComponent';
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+import VerticalBarRecharts from "@/pages/verticalBarRecharts";
+import { BarChart3 } from "lucide-react";
+import IndicatedInformation from "./plausible/IndicatedInformation";
+import { indicatedData, indicatedTitles, topSources } from "./data";
+import ConversionIndication from "./plausible/ConversionIndication";
+import CampainTable from "./plausible/CampainTable";
+import VerticalBarComponent from "./VerticalBarComponent";
 
-const FourBarsLineRechartComponent = dynamic(() => import('@/components/FourBarsLineRechartComponent'), {
+const FourBarsLineRechartComponent = dynamic(() => import("@/components/FourBarsLineRechartComponent"), {
   ssr: false,
 });
 

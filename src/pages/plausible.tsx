@@ -1,4 +1,4 @@
-import PlausibleComponent from '@/components/PlausibleComponent';
+import PlausibleComponent from "@/components/PlausibleComponent";
 
 const Plausible = () => {
   return (

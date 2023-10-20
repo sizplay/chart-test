@@ -6,10 +6,10 @@ import {
   VictoryLine,
   VictoryTooltip,
   VictoryVoronoiContainer,
-} from 'victory';
-import { monthlyData } from '@/components/data';
-import { color } from '@/components/color';
-import { Container } from '@/components/utils/Container';
+} from "victory";
+import { monthlyData } from "@/components/data";
+import { color } from "@/components/color";
+import { Container } from "@/components/utils/Container";
 
 const victorychart = () => {
   const newData = monthlyData.map((item) => {
@@ -51,7 +51,7 @@ const victorychart = () => {
           tickValues={monthlyData.map((item) => item.date1)}
           tickFormat={monthlyData.map((item) => item.date1)}
           style={{
-            tickLabels: { fontSize: 8, fill: '#fff' }, // Adjust the font size here
+            tickLabels: { fontSize: 8, fill: "#fff" }, // Adjust the font size here
           }}
           tickLabelComponent={<VictoryLabel dy={-10} />}
           tickCount={8}
@@ -60,7 +60,7 @@ const victorychart = () => {
           dependentAxis
           tickFormat={(x) => `${x / 1000}k`}
           style={{
-            tickLabels: { fontSize: 8, fill: '#fff' },
+            tickLabels: { fontSize: 8, fill: "#fff" },
             grid: { stroke: `${color.line}` },
           }}
           tickLabelComponent={<VictoryLabel dx={8} />}
@@ -69,8 +69,8 @@ const victorychart = () => {
           data={newData}
           style={{
             data: {
-              fill: 'url(#verticalGradient)',
-              stroke: 'transparent',
+              fill: "url(#verticalGradient)",
+              stroke: "transparent",
             },
           }}
         />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const useIsCSR = () => {
   const [isCSR, setIsCSR] = useState(false);

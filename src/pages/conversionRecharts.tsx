@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const ConversionRechartComponent = dynamic(() => import('@/components/ConversionRechartComponent'), { ssr: false });
+const ConversionRechartComponent = dynamic(() => import("@/components/ConversionRechartComponent"), { ssr: false });
 
 const ConversionRecharts = () => {
   return (

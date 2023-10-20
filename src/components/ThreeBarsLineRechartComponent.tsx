@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable tailwindcss/no-custom-classname */
-import { Bar, CartesianGrid, ComposedChart, Legend, Line, Tooltip, XAxis, YAxis } from 'recharts';
-import { color } from './color';
+import { Bar, CartesianGrid, ComposedChart, Legend, Line, Tooltip, XAxis, YAxis } from "recharts";
+import { color } from "./color";
 
-import { tooltipLinesFunc } from './utils/tooltipVisitorFunc';
-import { monthlyData } from './data';
+import { tooltipLinesFunc } from "./utils/tooltipVisitorFunc";
+import { monthlyData } from "./data";
 
-const wrapperStyle = 'flex items-center justify-between';
-const pStyle = 'mr-2.5 text-sm text-black';
+const wrapperStyle = "flex items-center justify-between";
+const pStyle = "mr-2.5 text-sm text-black";
 
 const style = {
   wrapperStyle,
@@ -51,7 +51,7 @@ const ThreeBarsLineRechartComponent = () => {
     const { active, payload } = props;
 
     if (active) {
-      const visitorDate = payload[0]?.payload.date1 || '';
+      const visitorDate = payload[0]?.payload.date1 || "";
       const pageview = payload[0]?.payload.pageview ?? 0;
       const click = payload[0]?.payload.click;
       const conversion = payload[0]?.payload.conversion;
@@ -106,7 +106,7 @@ const ThreeBarsLineRechartComponent = () => {
       <YAxis
         yAxisId="right"
         orientation="right"
-        label={{ value: 'Conversion Rate', angle: 90, position: 'insideRight' }}
+        label={{ value: "Conversion Rate", angle: 90, position: "insideRight" }}
         tick={{ fontSize: 12, stroke: color.blue }}
         tickFormatter={(tickItem: any) => `${tickItem}%`}
         domain={[0, 100]}

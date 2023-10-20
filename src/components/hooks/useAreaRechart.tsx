@@ -1,11 +1,11 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import styled from '@emotion/styled';
-import { useEffect, useState } from 'react';
-import { Line } from 'recharts';
-import { color } from '../color';
-import { monthlyData } from '../data';
-import { tooltipLinesFunc } from '../utils/tooltipVisitorFunc';
+import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
+import { Line } from "recharts";
+import { color } from "../color";
+import { monthlyData } from "../data";
+import { tooltipLinesFunc } from "../utils/tooltipVisitorFunc";
 
 const useAreaRechart = () => {
   const [data, setData] = useState<any[]>(monthlyData);
@@ -24,7 +24,7 @@ const useAreaRechart = () => {
     const { active, payload } = props;
 
     if (active) {
-      const visitorDate = payload[0]?.payload.date1 || '';
+      const visitorDate = payload[0]?.payload.date1 || "";
       const pageview = payload[0]?.value;
       const screen = payload[1]?.value;
       const click = payload[2]?.value;
@@ -57,19 +57,19 @@ const useAreaRechart = () => {
   };
 
   const handleChangeSelect = (e: any) => {
-    if (e.target.value === 'monthly') {
+    if (e.target.value === "monthly") {
       setData(monthlyData);
     }
-    if (e.target.value === 'weekly1') {
+    if (e.target.value === "weekly1") {
       setData(monthlyData.slice(0, 7));
     }
-    if (e.target.value === 'weekly2') {
+    if (e.target.value === "weekly2") {
       setData(monthlyData.slice(7, 14));
     }
-    if (e.target.value === 'weekly3') {
+    if (e.target.value === "weekly3") {
       setData(monthlyData.slice(14, 21));
     }
-    if (e.target.value === 'weekly4') {
+    if (e.target.value === "weekly4") {
       setData(monthlyData.slice(21));
     }
   };

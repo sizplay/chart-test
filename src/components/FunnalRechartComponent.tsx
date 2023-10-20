@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { BarChart, XAxis, YAxis, Legend, Bar, Tooltip, ResponsiveContainer } from 'recharts';
-import { useEffect, useState } from 'react';
-import { conversionData } from '@/components/data';
-import { color } from './color';
+import { BarChart, XAxis, YAxis, Legend, Bar, Tooltip, ResponsiveContainer } from "recharts";
+import { useEffect, useState } from "react";
+import { conversionData } from "@/components/data";
+import { color } from "./color";
 
 const FunnalRechartComponent = () => {
   const [newData, setNewData] = useState<any[]>(conversionData || []);

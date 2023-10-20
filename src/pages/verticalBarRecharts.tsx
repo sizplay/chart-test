@@ -1,11 +1,11 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Bar, BarChart, XAxis, YAxis, ResponsiveContainer, LabelList } from 'recharts';
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { devicesData } from '@/components/data';
-import useIsCSR from '@/components/hooks/useIsCSR';
-import { color } from '@/components/color';
+import { Bar, BarChart, XAxis, YAxis, ResponsiveContainer, LabelList } from "recharts";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { devicesData } from "@/components/data";
+import useIsCSR from "@/components/hooks/useIsCSR";
+import { color } from "@/components/color";
 
 const MAX_WIDTH = 1280 / 2;
 
@@ -44,7 +44,7 @@ const VerticalBarRecharts = () => {
 
     const yCoordinate = y + height / 2;
 
-    if (key === 'type') {
+    if (key === "type") {
       return (
         <Link href="/">
           <text
@@ -72,18 +72,18 @@ const VerticalBarRecharts = () => {
           className="text-xs"
         >
           {value.toLocaleString()}
-          {key === 'ctr' || key === 'conversionRate' ? '%' : ''}
+          {key === "ctr" || key === "conversionRate" ? "%" : ""}
         </text>
       </g>
     );
   };
 
   const handleChangeData = (type: string) => {
-    if (type === 'browser') {
+    if (type === "browser") {
       setData(devicesData);
-    } else if (type === 'os') {
+    } else if (type === "os") {
       // setData(osData);
-    } else if (type === 'size') {
+    } else if (type === "size") {
       // setData(sizeData);
     }
   };
@@ -100,15 +100,15 @@ const VerticalBarRecharts = () => {
             <div className="text-md flex gap-3 pr-5">
               <button
                 type="button"
-                onClick={() => handleChangeData('browser')}
+                onClick={() => handleChangeData("browser")}
                 className="underline active:text-sky-500"
               >
                 브라우저
               </button>
-              <button type="button" onClick={() => handleChangeData('os')} className="underline active:text-sky-500">
+              <button type="button" onClick={() => handleChangeData("os")} className="underline active:text-sky-500">
                 OS
               </button>
-              <button type="button" onClick={() => handleChangeData('size')} className="underline active:text-sky-500">
+              <button type="button" onClick={() => handleChangeData("size")} className="underline active:text-sky-500">
                 Size
               </button>
             </div>
@@ -141,16 +141,16 @@ const VerticalBarRecharts = () => {
               <XAxis type="number" hide={true} />
               <YAxis dataKey="type" type="category" scale="band" hide={true} />
               <Bar dataKey="pageview" fill="#c5d5f1">
-                <LabelList dataKey="type" content={(props) => customLabelList(props, 'type', 10)} />
+                <LabelList dataKey="type" content={(props) => customLabelList(props, "type", 10)} />
                 {/* <LabelList dataKey="visitors" content={(props) => customLabelList(props, 'visitors', 625)} /> */}
-                <LabelList dataKey="pageview" content={(props) => customLabelList(props, 'pageview', 725)} />
-                <LabelList dataKey="screen" content={(props) => customLabelList(props, 'screen', 825)} />
-                <LabelList dataKey="click" content={(props) => customLabelList(props, 'click', 925)} />
-                <LabelList dataKey="ctr" content={(props) => customLabelList(props, 'ctr', 1025)} />
-                <LabelList dataKey="conversion" content={(props) => customLabelList(props, 'conversion', 1125)} />
+                <LabelList dataKey="pageview" content={(props) => customLabelList(props, "pageview", 725)} />
+                <LabelList dataKey="screen" content={(props) => customLabelList(props, "screen", 825)} />
+                <LabelList dataKey="click" content={(props) => customLabelList(props, "click", 925)} />
+                <LabelList dataKey="ctr" content={(props) => customLabelList(props, "ctr", 1025)} />
+                <LabelList dataKey="conversion" content={(props) => customLabelList(props, "conversion", 1125)} />
                 <LabelList
                   dataKey="conversionRate"
-                  content={(props) => customLabelList(props, 'conversionRate', 1225)}
+                  content={(props) => customLabelList(props, "conversionRate", 1225)}
                 />
               </Bar>
             </BarChart>

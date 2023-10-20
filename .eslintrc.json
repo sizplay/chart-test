@@ -19,23 +19,13 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:tailwindcss/recommended"
   ],
-  "ignorePatterns": [
-    "node_modules/",
-    "next.config.js",
-    "tsconfig.json"
-  ],
+  "ignorePatterns": ["node_modules/", "next.config.js", "tsconfig.json"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "import",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "react-hooks", "import", "@typescript-eslint", "prettier"],
   "rules": {
     "@next/next/no-img-element": "off",
     "@typescript-eslint/ban-types": "off",
@@ -44,9 +34,7 @@
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-var-requires": "off",
     "camelcase": "off",
-    "import/extensions": [
-      "off"
-    ],
+    "import/extensions": ["off"],
     "import/no-extraneous-dependencies": [
       "error",
       {
@@ -75,12 +63,7 @@
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ],
     "react/jsx-no-useless-fragment": "off",
@@ -93,11 +76,7 @@
   },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx",
-        ".js"
-      ]
+      "@typescript-eslint/parser": [".ts", ".tsx", ".js"]
     },
     "import/resolver": {
       "typescript": {}

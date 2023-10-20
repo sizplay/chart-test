@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { scaleLinear, scaleBand } from '@visx/scale';
-import { Bar } from '@visx/shape';
-import { useSpring, animated } from 'react-spring';
-import { devicesData, sizeData } from '@/components/data';
-import { Container } from '@/components/utils/Container';
+import React, { useEffect, useState } from "react";
+import { scaleLinear, scaleBand } from "@visx/scale";
+import { Bar } from "@visx/shape";
+import { useSpring, animated } from "react-spring";
+import { devicesData } from "@/components/data";
+import { Container } from "@/components/utils/Container";
 
 const data1 = devicesData;
 

@@ -1,8 +1,8 @@
-import dynamic from 'next/dynamic';
+// import dynamic from "next/dynamic";
 
-const FourBarsLineRechartComponent = dynamic(() => import('@/components/FourBarsLineRechartComponent'), {
-  ssr: false,
-});
+// const FourBarsLineRechartComponent = dynamic(() => import("@/components/FourBarsLineRechartComponent"), {
+//   ssr: false,
+// });
 
 const FourBarsLineRecharts = () => {
   return (

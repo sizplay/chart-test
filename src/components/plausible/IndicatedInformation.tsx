@@ -1,5 +1,5 @@
-import { indicatedData } from '@/components/data';
-import IndicatedBox from './\bIndicatedBox';
+import { indicatedData } from "@/components/data";
+import IndicatedBox from "./\bIndicatedBox";
 
 interface IndicatedInformationProps {
   selections: object;

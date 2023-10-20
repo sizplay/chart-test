@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Bar, BarChart, LabelList, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { useEffect, useState } from 'react';
-import { color } from './color';
+import { Bar, BarChart, LabelList, ResponsiveContainer, XAxis, YAxis } from "recharts";
+import { useEffect, useState } from "react";
+import { color } from "./color";
 
 const MAX_WIDTH = 1280 / 2;
 const VerticalBarComponent = ({ data }: any) => {
@@ -34,7 +34,7 @@ const VerticalBarComponent = ({ data }: any) => {
 
     const yCoordinate = y + height / 2;
 
-    if (key === 'title') {
+    if (key === "title") {
       return (
         <text x={x + width} y={yCoordinate} fill={color.grayColor} textAnchor="start" dominantBaseline="middle">
           {value}
@@ -55,7 +55,7 @@ const VerticalBarComponent = ({ data }: any) => {
           className="text-xs"
         >
           {value}
-          {key === 'ctr' || key === 'conversionRate' ? '%' : ''}
+          {key === "ctr" || key === "conversionRate" ? "%" : ""}
         </text>
       </g>
     );
@@ -91,13 +91,13 @@ const VerticalBarComponent = ({ data }: any) => {
           <XAxis type="number" hide={true} />
           <YAxis dataKey="title" type="category" scale="band" hide={true} />
           <Bar dataKey="visitors" fill="#c5d5f1">
-            <LabelList dataKey="title" content={(props) => customLabelList(props, 'title', 10)} />
-            <LabelList dataKey="visitors" content={(props) => customLabelList(props, 'visitors', 715)} />
-            <LabelList dataKey="screen" content={(props) => customLabelList(props, 'screen', 815)} />
-            <LabelList dataKey="click" content={(props) => customLabelList(props, 'click', 915)} />
-            <LabelList dataKey="ctr" content={(props) => customLabelList(props, 'ctr', 1015)} />
-            <LabelList dataKey="conversion" content={(props) => customLabelList(props, 'conversion', 1115)} />
-            <LabelList dataKey="conversionRate" content={(props) => customLabelList(props, 'conversionRate', 1215)} />
+            <LabelList dataKey="title" content={(props) => customLabelList(props, "title", 10)} />
+            <LabelList dataKey="visitors" content={(props) => customLabelList(props, "visitors", 715)} />
+            <LabelList dataKey="screen" content={(props) => customLabelList(props, "screen", 815)} />
+            <LabelList dataKey="click" content={(props) => customLabelList(props, "click", 915)} />
+            <LabelList dataKey="ctr" content={(props) => customLabelList(props, "ctr", 1015)} />
+            <LabelList dataKey="conversion" content={(props) => customLabelList(props, "conversion", 1115)} />
+            <LabelList dataKey="conversionRate" content={(props) => customLabelList(props, "conversionRate", 1215)} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>

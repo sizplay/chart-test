@@ -6,7 +6,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
 html,
 body,
@@ -125,7 +125,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {

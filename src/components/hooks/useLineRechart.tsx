@@ -1,10 +1,10 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import styled from '@emotion/styled';
-import { Area, Line } from 'recharts';
-import { useEffect, useState } from 'react';
-import { color } from '../color';
-import { twoMonthsData } from '../data';
+import styled from "@emotion/styled";
+import { Area, Line } from "recharts";
+import { useEffect, useState } from "react";
+import { color } from "../color";
+import { twoMonthsData } from "../data";
 
 const useLineRechart = () => {
   const [data, setData] = useState<any[]>(twoMonthsData);
@@ -28,8 +28,8 @@ const useLineRechart = () => {
       const visitor1 = payload[0].value;
       const visitor2 = payload[1].value;
 
-      const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-      const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
       const date1 = new Date(visitorDate1);
       const date2 = new Date(visitorDate2);
@@ -71,19 +71,19 @@ const useLineRechart = () => {
   };
 
   const handleLineChangeSelect = (e: any) => {
-    if (e.target.value === 'monthly') {
+    if (e.target.value === "monthly") {
       setData(twoMonthsData);
     }
-    if (e.target.value === 'weekly1') {
+    if (e.target.value === "weekly1") {
       setData(twoMonthsData.slice(0, 7));
     }
-    if (e.target.value === 'weekly2') {
+    if (e.target.value === "weekly2") {
       setData(twoMonthsData.slice(7, 14));
     }
-    if (e.target.value === 'weekly3') {
+    if (e.target.value === "weekly3") {
       setData(twoMonthsData.slice(14, 21));
     }
-    if (e.target.value === 'weekly4') {
+    if (e.target.value === "weekly4") {
       setData(twoMonthsData.slice(21));
     }
   };

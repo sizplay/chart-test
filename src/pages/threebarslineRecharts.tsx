@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const ThreeBarsLineRechartComponent = dynamic(() => import('@/components/ThreeBarsLineRechartComponent'), {
+const ThreeBarsLineRechartComponent = dynamic(() => import("@/components/ThreeBarsLineRechartComponent"), {
   ssr: false,
 });
 

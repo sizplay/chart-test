@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import useAreaRechart from '@/components/hooks/useAreaRechart';
-import useLineRechart from '@/components/hooks/useLineRechart';
-import RechartComponent from '@/components/RechartComponent';
-import { Container } from '@/components/utils/Container';
+import useAreaRechart from "@/components/hooks/useAreaRechart";
+import useLineRechart from "@/components/hooks/useLineRechart";
+import RechartComponent from "@/components/RechartComponent";
+import { Container } from "@/components/utils/Container";
 
 const Home = () => {
-  const [graphType, setGraphType] = useState<'line' | 'area'>('area');
+  const [graphType, setGraphType] = useState<"line" | "area">("area");
 
   const handleChangeGraph = () => {
-    setGraphType(graphType === 'area' ? 'line' : 'area');
+    setGraphType(graphType === "area" ? "line" : "area");
   };
 
   const {
@@ -33,13 +33,13 @@ const Home = () => {
   return (
     <Container>
       <RechartComponent
-        handleChangeSelect={graphType === 'area' ? handleChangeSelect : handleLineChangeSelect}
-        handleFormatYAxis={graphType === 'area' ? handleAreaFormatYAxis : handleLineFormatYAxis}
-        customTooltip={graphType === 'area' ? AreaCustomTooltip : lineCustomTooltip}
-        data={graphType === 'area' ? AreaData : LineData}
+        handleChangeSelect={graphType === "area" ? handleChangeSelect : handleLineChangeSelect}
+        handleFormatYAxis={graphType === "area" ? handleAreaFormatYAxis : handleLineFormatYAxis}
+        customTooltip={graphType === "area" ? AreaCustomTooltip : lineCustomTooltip}
+        data={graphType === "area" ? AreaData : LineData}
         handleChangeGraph={handleChangeGraph}
       >
-        {graphType === 'area' ? AreaChildren : LineChildren}
+        {graphType === "area" ? AreaChildren : LineChildren}
       </RechartComponent>
     </Container>
   );

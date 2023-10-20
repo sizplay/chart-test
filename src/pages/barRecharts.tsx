@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { BarChart, Bar, XAxis, YAxis, LabelList, Tooltip } from 'recharts';
-import styled from '@emotion/styled';
-import useIsCSR from '@/components/hooks/useIsCSR';
-import { Container } from '@/components/utils/Container';
-import { color } from '@/components/color';
-import { CustomTooltip, VisitorsWrapper } from '@/components/hooks/useLineRechart';
-import { visitorData } from '@/components/data';
+import { BarChart, Bar, XAxis, YAxis, LabelList, Tooltip } from "recharts";
+import styled from "@emotion/styled";
+import useIsCSR from "@/components/hooks/useIsCSR";
+import { Container } from "@/components/utils/Container";
+import { color } from "@/components/color";
+import { CustomTooltip, VisitorsWrapper } from "@/components/hooks/useLineRechart";
+import { visitorData } from "@/components/data";
 
 const BarRecharts = () => {
   const isCSR = useIsCSR();
@@ -15,7 +15,7 @@ const BarRecharts = () => {
     const { x, y, value } = props;
 
     const myData = visitorData.find((item) => item.current === value);
-    const visitors = myData?.visitors ? `(${(myData.visitors / 1000).toFixed(1)}k Visitors)` : '(0k Visitors)';
+    const visitors = myData?.visitors ? `(${(myData.visitors / 1000).toFixed(1)}k Visitors)` : "(0k Visitors)";
     if (value > 90) {
       return (
         <g>
@@ -55,10 +55,10 @@ const BarRecharts = () => {
   };
 
   const tempLabel = (label: string) => {
-    if (label === 'Visit /register') return 'Visit /register';
-    if (label === 'Signup') return 'Visit /register -> Signup';
-    if (label === 'Visit /activate') return 'Signup -> Visit /activate';
-    return 'Visit /activate -> Visit /sites/new';
+    if (label === "Visit /register") return "Visit /register";
+    if (label === "Signup") return "Visit /register -> Signup";
+    if (label === "Visit /activate") return "Signup -> Visit /activate";
+    return "Visit /activate -> Visit /sites/new";
   };
 
   const customTooltip = (props: any) => {
@@ -66,8 +66,8 @@ const BarRecharts = () => {
 
     const info = payload[0]?.payload;
 
-    const firstLabel = label === 'Visit /register' ? 'Entered the funnel' : 'Visitors';
-    const secondLabel = label === 'Visit /register' ? 'Never entered the funnel' : 'Dropoff';
+    const firstLabel = label === "Visit /register" ? "Entered the funnel" : "Visitors";
+    const secondLabel = label === "Visit /register" ? "Never entered the funnel" : "Dropoff";
 
     if (active) {
       return (

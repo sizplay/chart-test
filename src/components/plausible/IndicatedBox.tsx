@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Tooltip, Statistic } from 'antd';
-import { AlertCircle, Eye, MousePointerClick, MoveDown, MoveUp, ShoppingCart, User } from 'lucide-react';
+import { Tooltip } from "antd";
+import { AlertCircle, Eye, MousePointerClick, MoveDown, MoveUp, ShoppingCart, User } from "lucide-react";
 
 const titleIcons = {
   user: <User size={16} className="mr-1 text-gray-400" />,
@@ -29,7 +29,7 @@ const IndicatedBox = ({ data, handleSelections, selected }: IndicatedBoxProps) =
     <section
       key={data.title}
       className={`mt-4 box-border flex w-full cursor-pointer flex-col rounded-lg bg-white p-3 ${
-        selected && 'border-2 border-solid border-sky-500'
+        selected && "border-2 border-solid border-sky-500"
       } `}
       onClick={() => handleSelections(data.title)}
     >
@@ -43,10 +43,10 @@ const IndicatedBox = ({ data, handleSelections, selected }: IndicatedBoxProps) =
       <div className="mt-1 flex items-end">
         <p className="text-2xl font-bold">{data.value}</p>
         <div className="flex items-end">
-          <p className={`ml-1 text-lg ${data.percentageColor === 'green' ? 'text-green-600' : 'text-red-600'}`}>
+          <p className={`ml-1 text-lg ${data.percentageColor === "green" ? "text-green-600" : "text-red-600"}`}>
             {data.percentage}%
           </p>
-          {data.percentageColor === 'green' ? (
+          {data.percentageColor === "green" ? (
             <MoveUp size={15} className="-translate-y-1 text-green-600" />
           ) : (
             <MoveDown size={15} className="-translate-y-1 text-red-600" />

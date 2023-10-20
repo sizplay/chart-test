@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import { Progress } from 'antd';
-import { conversionIndicationData } from '@/components/data';
-import { Aperture, FilePlus, MousePointerClick, ShoppingCart, SquareEqual } from 'lucide-react';
+import { Progress } from "antd";
+import { conversionIndicationData } from "@/components/data";
+import { Aperture, FilePlus, MousePointerClick, ShoppingCart, SquareEqual } from "lucide-react";
 
 const icons = {
   web: <MousePointerClick size={20} className="m-2" />,
@@ -18,7 +18,7 @@ const ConversionIndication = () => {
         <h1 className="pl-5 text-3xl text-gray-500">전환 지표</h1>
         <div className="grid grid-cols-5">
           {conversionIndicationData.map((item, index) => {
-            if (item.title === '추가') {
+            if (item.title === "추가") {
               return (
                 <div
                   key={item.title + index}
@@ -44,8 +44,8 @@ const ConversionIndication = () => {
                 </div>
                 <Progress
                   strokeColor={{
-                    '0%': '#ddecf6',
-                    '100%': '#108ee9',
+                    "0%": "#ddecf6",
+                    "100%": "#108ee9",
                   }}
                   trailColor="#dcdcdc"
                   percent={item.percentage}

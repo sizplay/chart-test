@@ -1,12 +1,12 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { LinearGradient } from '@visx/gradient';
-import { AnimatedAreaSeries, AnimatedLineSeries } from '@visx/xychart';
-import styled from '@emotion/styled';
-import { twoMonthsData } from '../data';
-import { color } from '../color';
-import { tooltipVisitorFunc } from '../utils/tooltipVisitorFunc';
-import { LastText, VisitorsWrapper } from './useAreaRechart';
+import { LinearGradient } from "@visx/gradient";
+import { AnimatedAreaSeries, AnimatedLineSeries } from "@visx/xychart";
+import styled from "@emotion/styled";
+import { twoMonthsData } from "../data";
+import { color } from "../color";
+import { tooltipVisitorFunc } from "../utils/tooltipVisitorFunc";
+import { LastText, VisitorsWrapper } from "./useAreaRechart";
 
 const useAreaVisx = () => {
   const data1 = twoMonthsData.map((item) => {

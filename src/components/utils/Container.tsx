@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { color } from '../color';
+import styled from "@emotion/styled";
+import { color } from "../color";
 
 export const Container = styled.section`
   width: 100%;

@@ -4,10 +4,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Area, AreaChart, Tooltip, XAxis, YAxis } from 'recharts';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { conversionDataForOneMonth } from './data';
-import { color } from './color';
+import { Area, AreaChart, Tooltip, XAxis, YAxis } from "recharts";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { conversionDataForOneMonth } from "./data";
+import { color } from "./color";
 
 const TWODAYSDIVISION = 48;
 
@@ -101,7 +101,7 @@ const ConversionRechartComponent = () => {
   useLayoutEffect(() => {
     const chart = chartRef.current;
     if (chart !== null) {
-      const xAxisLineElements = chart.querySelectorAll('.recharts-cartesian-axis-tick-line');
+      const xAxisLineElements = chart.querySelectorAll(".recharts-cartesian-axis-tick-line");
       const tickWidth =
         (xAxisLineElements[1].getBoundingClientRect().x - xAxisLineElements[0].getBoundingClientRect().x) /
         TWODAYSDIVISION;
@@ -185,7 +185,7 @@ const ConversionRechartComponent = () => {
                         y1="0"
                         x2={newLinePosition}
                         y2="500"
-                        stroke={data.event.color || '#b5b5b5'}
+                        stroke={data.event.color || "#b5b5b5"}
                         strokeWidth={1}
                         strokeDasharray="10 10"
                       />

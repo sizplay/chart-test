@@ -1,8 +1,8 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AnimatedAxis, AnimatedGrid, Tooltip, XYChart } from '@visx/xychart';
-import { color } from './color';
+import { AnimatedAxis, AnimatedGrid, Tooltip, XYChart } from "@visx/xychart";
+import { color } from "./color";
 
 interface VisxProps {
   customTheme: any;
@@ -12,7 +12,7 @@ interface VisxProps {
 
 const VisxComponent = ({ customTheme, handleRenderTooltip, children }: VisxProps) => {
   return (
-    <XYChart width={1200} height={600} xScale={{ type: 'band' }} yScale={{ type: 'linear' }} theme={customTheme}>
+    <XYChart width={1200} height={600} xScale={{ type: "band" }} yScale={{ type: "linear" }} theme={customTheme}>
       <AnimatedGrid columns={false} numTicks={4} lineStyle={{ stroke: color.line }} />
       <AnimatedAxis
         orientation="bottom"

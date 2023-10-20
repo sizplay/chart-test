@@ -1,22 +1,22 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable tailwindcss/no-custom-classname */
-import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { color } from './color';
-import { tooltipLinesFunc } from './utils/tooltipVisitorFunc';
-import { indicatedTitles, monthlyData } from './data';
+import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { color } from "./color";
+import { tooltipLinesFunc } from "./utils/tooltipVisitorFunc";
+import { indicatedTitles, monthlyData } from "./data";
 
 const legendData = {
-  users: '유저수',
-  pageview: '노출수',
-  click: '클릭',
-  conversion: '전환',
-  clickRate: '클릭율',
-  conversionRate: '전환율',
+  users: "유저수",
+  pageview: "노출수",
+  click: "클릭",
+  conversion: "전환",
+  clickRate: "클릭율",
+  conversionRate: "전환율",
 };
 
-const wrapperStyle = 'flex items-center justify-between';
-const pStyle = 'mr-2.5 text-sm text-black';
+const wrapperStyle = "flex items-center justify-between";
+const pStyle = "mr-2.5 text-sm text-black";
 
 const style = {
   wrapperStyle,
@@ -67,7 +67,7 @@ const FourBarsLineRechartComponent = ({ selections }: FourBarsLineRechartCompone
     const { active, payload } = props;
 
     if (active && payload) {
-      const visitorDate = payload[0]?.payload.date1 || '';
+      const visitorDate = payload[0]?.payload.date1 || "";
       const users = payload[0]?.payload.users ?? 0;
       const pageview = payload[0]?.payload.pageview ?? 0;
       const click = payload[0]?.payload.click;
@@ -171,19 +171,19 @@ const FourBarsLineRechartComponent = ({ selections }: FourBarsLineRechartCompone
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
         <Legend verticalAlign="bottom" height={36} wrapperStyle={{ color: color.blue }} content={renderLegend} />
         <Tooltip content={customTooltip} cursor={<CustomCursor />} />
-        <XAxis dataKey="date1" tick={{ fontSize: 14, stroke: '#9CA3AF', strokeWidth: 0.1 }} />
+        <XAxis dataKey="date1" tick={{ fontSize: 14, stroke: "#9CA3AF", strokeWidth: 0.1 }} />
         <YAxis
           tickFormatter={handleFormatYAxis}
-          tick={{ fontSize: 14, stroke: '#9CA3AF', strokeWidth: 0.1 }}
+          tick={{ fontSize: 14, stroke: "#9CA3AF", strokeWidth: 0.1 }}
           yAxisId="left"
           domain={[0, 10000]}
-          label={{ value: '유저수', angle: 90, position: 'insideLeft' }}
+          label={{ value: "유저수", angle: 90, position: "insideLeft" }}
         />
         <YAxis
           yAxisId="right"
           orientation="right"
-          label={{ value: '전환율', angle: 90, position: 'insideRight' }}
-          tick={{ fontSize: 14, stroke: '#9CA3AF', strokeWidth: 0.1 }}
+          label={{ value: "전환율", angle: 90, position: "insideRight" }}
+          tick={{ fontSize: 14, stroke: "#9CA3AF", strokeWidth: 0.1 }}
           tickFormatter={(tickItem: any) => `${tickItem}%`}
           domain={[0, 100]}
         />

@@ -1,17 +1,17 @@
-import { Play, Maximize, Pause, VolumeX, Volume2, Repeat } from 'lucide-react';
-import dynamic from 'next/dynamic';
-import { useEffect, useRef, useState } from 'react';
-import { findDOMNode } from 'react-dom';
-import ReactPlayer, { ReactPlayerProps } from 'react-player';
-import screenfull from 'screenfull';
-import { Slider } from 'antd';
-import { timeFormat } from './utils';
+import { Play, Maximize, Pause, VolumeX, Volume2, Repeat } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
+import { findDOMNode } from "react-dom";
+import ReactPlayer, { ReactPlayerProps } from "react-player";
+import screenfull from "screenfull";
+import { Slider } from "antd";
+import { timeFormat } from "./utils";
 
 interface PlayerComponentProps {
   url: string;
 }
 
-const VideoPlayer = dynamic(() => import('./VideoPlayer'), { ssr: false });
+const VideoPlayer = dynamic(() => import("./VideoPlayer"), { ssr: false });
 
 const PlayerComponent = ({ url }: PlayerComponentProps) => {
   const fullScreenRef = useRef(null);
@@ -22,7 +22,7 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
   const [volumes, setVolumes] = useState<number>(50);
   const [played, setPlayed] = useState<number>(0);
   const [seeking, setSeeking] = useState(false);
-  const [seekTime, setSeekTime] = useState('0:00');
+  const [seekTime, setSeekTime] = useState("0:00");
   const [showVolumeSlider, setShowVolumeSlider] = useState(false);
   const [isEnded, setIsEnded] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(true);
@@ -36,17 +36,16 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
 
   const handleFullScreen = () => {
     if (screenfull.isEnabled && fullScreenRef.current) {
-      // screenfull.toggle(findDOMNode(fullScreenRef.current) as Element);
       // eslint-disable-next-line react/no-find-dom-node
       screenfull.request(findDOMNode(fullScreenRef.current) as Element);
     }
   };
 
-  const handlePlaying = () => {
+  const handlePlayingButton = () => {
     setIsPlaying((prev) => !prev);
     if (isEnded) {
       setIsEnded(false);
-      setSeekTime('0:00');
+      setSeekTime("0:00");
     }
   };
 
@@ -58,19 +57,19 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
     setIsRepeat((prev) => !prev);
   };
 
-  const handleStart = () => {
+  const handleStartVideo = () => {
     if (!isPlaying) {
       setIsPlaying(true);
     }
   };
 
-  const handlePause = () => {
+  const handlePauseVideo = () => {
     if (isPlaying) {
       setIsPlaying(false);
     }
   };
 
-  const handlePlay = () => {
+  const handlePlayVideo = () => {
     if (!isPlaying) {
       setIsPlaying(true);
     }
@@ -89,7 +88,7 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
   const handleSeekMouseUp = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSeeking(false);
     // console.log(parseFloat(e.target.value));
-    playerRef.current?.seekTo(parseFloat(e.target.value), 'fraction');
+    playerRef.current?.seekTo(parseFloat(e.target.value), "fraction");
   };
 
   const handleSeekChange = (e: any) => {
@@ -111,7 +110,7 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
       setPlayed(e.played);
     }
 
-    if (seekTime > '0:00' && seekTime < '0:02' && isFullScreen) {
+    if (seekTime > "0:00" && seekTime < "0:02" && isFullScreen) {
       handleFullScreen();
       setIsFullScreen(false);
     }
@@ -146,9 +145,9 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
           playerRef={playerRef}
           onProgress={(e) => onProgress(e)}
           isRepeat={isRepeat}
-          onStart={handleStart}
-          onPause={handlePause}
-          onPlay={handlePlay}
+          onStart={handleStartVideo}
+          onPause={handlePauseVideo}
+          onPlay={handlePlayVideo}
           onEnded={handleEnded}
           // onDuration={handleDuration}
         />
@@ -179,9 +178,9 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
       <div className="flex h-16 w-full items-center justify-between px-5">
         <div className="flex items-center">
           {isPlaying ? (
-            <Pause onClick={handlePlaying} className="cursor-pointer text-white hover:text-gray-400" />
+            <Pause onClick={handlePlayingButton} className="cursor-pointer text-white hover:text-gray-400" />
           ) : (
-            <Play onClick={handlePlaying} className="cursor-pointer text-white hover:text-gray-400" />
+            <Play onClick={handlePlayingButton} className="cursor-pointer text-white hover:text-gray-400" />
           )}
           {volumes === 0 ? (
             <VolumeX onClick={() => handleMuting(1)} className="ml-3 cursor-pointer text-white hover:text-gray-400" />
@@ -197,15 +196,15 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
                   <Slider
                     defaultValue={volumes}
                     onChange={handleVolumeChange}
-                    trackStyle={{ backgroundColor: 'white' }}
-                    railStyle={{ backgroundColor: 'gray' }}
-                    handleStyle={{ borderColor: 'white' }}
+                    trackStyle={{ backgroundColor: "white" }}
+                    railStyle={{ backgroundColor: "gray" }}
+                    handleStyle={{ borderColor: "white" }}
                   />
                 </div>
               )}
             </div>
           )}
-          <div className="ml-3 flex  -translate-y-0.5 items-center">
+          <div className="ml-3 flex -translate-y-0.5 items-center">
             <time dateTime={`P${Math.ceil(Number(seekTime))}S`} className="text-white">
               {seekTime}
             </time>
@@ -218,7 +217,7 @@ const PlayerComponent = ({ url }: PlayerComponentProps) => {
         <div className="flex items-center gap-5">
           <Repeat
             onClick={handleRepeat}
-            className={`${isRepeat ? 'text-white' : 'text-gray-600'} cursor-pointer hover:text-gray-400`}
+            className={`${isRepeat ? "text-white" : "text-gray-600"} cursor-pointer hover:text-gray-400`}
           />
           <Maximize onClick={handleFullScreen} className="cursor-pointer text-white hover:text-gray-400" />
         </div>

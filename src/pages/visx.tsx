@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
-import { buildChartTheme } from '@visx/xychart';
-import { color } from '@/components/color';
-import VisxComponent from '@/components/VisxComponent';
-import useAreaVisx from '@/components/hooks/useAreaVisx';
-import { Container } from '@/components/utils/Container';
+import styled from "@emotion/styled";
+import { buildChartTheme } from "@visx/xychart";
+import { color } from "@/components/color";
+import VisxComponent from "@/components/VisxComponent";
+import useAreaVisx from "@/components/hooks/useAreaVisx";
+import { Container } from "@/components/utils/Container";
 
 const customTheme = buildChartTheme({
   backgroundColor: color.background,
